@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { href, dateLabel, sections } from '../data/site';
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+const { article } = Astro.props;
+const d = article.data;
+---
+
+<article class="card">
+  <a href={href('articles/' + d.slug + '/')}>
+    <img
+      src={href(d.featuredImage)}
+      srcset={`${href(d.featuredImage.replace('.webp', '-small.webp'))} 640w, ${href(d.featuredImage)} 1440w`}
+      sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, 33vw"
+      alt={d.imageAlt}
+      width="720"
+      height="450"
+      loading="lazy"
+    />
+    <span class="eyebrow">
+      {sections.find((s) => s.slug === d.category)?.title}
+    </span>
+    <h3>{d.title}</h3>
+  </a>
+  <p>{d.description}</p>
+  <div class="meta">
+    {d.sample ? 'Sample · ' : ''}
+    {d.author} · {dateLabel(d.publishedDate)}
+  </div>
+</article>

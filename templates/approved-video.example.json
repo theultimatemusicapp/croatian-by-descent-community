@@ -1,0 +1,12 @@
+{
+  "slug": "replace-with-video-slug",
+  "title": "Replace with the approved video title",
+  "youtubeUrl": "https://www.youtube.com/watch?v=REPLACE_ID",
+  "description": "Write an original description of the approved video.",
+  "channel": "Carl Tomich",
+  "date": "2026-09-10",
+  "category": "Moving to Croatia",
+  "location": "Zadar",
+  "approved": false,
+  "relatedArticles": ["moving-to-croatia"]
+}

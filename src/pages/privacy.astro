@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../data/site';
+const forms = !!import.meta.env.PUBLIC_CONTACT_FORM_URL;
+const newsletter = !!import.meta.env.PUBLIC_NEWSLETTER_FORM_URL;
+const analytics = !!import.meta.env.PUBLIC_ANALYTICS_SCRIPT_URL;
+---
+
+<Base title="Privacy information">
+  <article
+    class="article-wrap prose"
+    style="margin-top:45px;margin-bottom:55px"
+  >
+    <h1>Privacy information</h1>
+    <p class="meta">Configuration notice · Updated 10 September 2026</p>
+    <h2>Reading the site</h2>
+    <p>
+      This is a static website. Search runs in your browser. The site does not
+      provide accounts or store your searches. The hosting provider may process
+      ordinary request data as part of serving pages.
+    </p>
+    <h2>Contact and newsletter</h2>
+    <p>
+      Contact form:{' '}
+      {forms
+        ? 'connected to a form provider'
+        : 'not connected; disabled and no submissions collected'}
+      . Newsletter:{' '}
+      {newsletter
+        ? 'connected to a newsletter provider'
+        : 'not connected; no email addresses collected'}
+      .
+    </p>
+    <p>
+      Before enabling collection, the publisher must add the provider’s
+      identity, purpose, retention period, data rights contact and any relevant
+      transfer information to this notice. Public form endpoint URLs are visible
+      in a static website; private service credentials must never be included.
+    </p>
+    <h2>Analytics</h2>
+    <p>
+      {analytics
+        ? 'An analytics script has been configured. The publisher must document its provider and practices here before launch.'
+        : 'No optional analytics script is configured.'}
+    </p>
+    <h2>External media and links</h2>
+    <p>
+      Approved videos may load YouTube thumbnails from YouTube servers. The
+      embedded player loads only when you choose to play a video. YouTube then
+      processes data under its own policies. External channel links and map
+      links take you to another provider.
+    </p>
+    <h2>Before launch</h2>
+    <p>
+      This configuration notice is a starting point. The publisher must confirm
+      the final hosting and connected services, add the appropriate contact and
+      retention details, and review this page before collecting personal data.
+    </p>
+    <p>
+      For editorial enquiries, see{' '}
+      <a href={href('contact/')}>Contact & submissions</a>.
+    </p>
+  </article>
+</Base>

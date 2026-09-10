@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { href, channels } from '../data/site';
+---
+
+<Base title="About Carl & the community">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={href()}>Home</a> / About
+  </nav>
+  <article class="article-wrap" style="margin-top:40px;margin-bottom:55px">
+    <span class="eyebrow">The story behind the community</span>
+    <h1>
+      Australian beginnings.
+      <br />
+      Croatian roots.
+    </h1>
+    <p style="font-size:21px">
+      Croatian By Descent Community is created by Carl Tomich, an
+      Australian-born creator with Croatian heritage who recently became a
+      Croatian citizen.
+    </p>
+    <figure class="article-image">
+      <img
+        src={href('images/coast.webp')}
+        alt="Rooftops of Zadar overlooking the Adriatic Sea"
+        width="1440"
+        height="960"
+      />
+      <figcaption>
+        Zadar, Croatia. <a href={href('image-credits/')}>Image credits</a>.
+      </figcaption>
+    </figure>
+    <div class="prose">
+      <h2>A personal journey, a shared resource</h2>
+      <p>
+        Carl is documenting life, ancestry, relocation and his experiences in
+        Croatia. This platform brings those interests together in a space for
+        useful information and human stories.
+      </p>
+      <p>
+        The aim is to help people explore their connection to Croatia, whether
+        they are planning a move, researching family history, considering
+        citizenship by descent or simply curious about everyday life.
+      </p>
+      <h2>Room for the full picture</h2>
+      <p>
+        We want the good experiences and the difficult ones to have a place
+        here. Personal stories will be clearly distinguished from professional
+        advice and official information. Initial sample guides and templates are
+        labelled while the editorial library develops.
+      </p>
+      <h2>Explore Carl’s work</h2>
+      <ul>
+        <li>
+          <a href="https://carltravels.com/">Carl Travels</a>
+        </li>
+        {channels.map((c) => (
+          <li>
+            <a href={c.url}>{c.name} on YouTube</a>
+          </li>
+        ))}
+        <li>
+          <a href="https://croatianbydescent.com/">Croatian By Descent</a>
+        </li>
+      </ul>
+      <h2>Have a Croatian chapter to share?</h2>
+      <p>
+        We welcome proposals for diaspora stories, returnee conversations and
+        practical local perspectives.{' '}
+        <a href={href('contact/')}>Contact & community submissions</a>.
+      </p>
+    </div>
+  </article>
+</Base>

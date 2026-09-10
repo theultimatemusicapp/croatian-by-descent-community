@@ -1,0 +1,299 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+import { publishedArticles } from '../data/articles';
+import { videos, youtubeId } from '../data/videos';
+const all = await publishedArticles();
+const latest = all
+  .filter((a) => !['news', 'interview', 'video'].includes(a.data.type))
+  .slice(0, 3);
+import Newsletter from '../components/Newsletter.astro';
+import { href, channels, places, slugify } from '../data/site';
+---
+
+<Base
+  title="Croatia, a little closer"
+  description="A shared connection to Croatia. Original guides to moving, citizenship by descent, places and diaspora life, from Carl Tomich."
+>
+  <div class="intro-line">
+    <span>
+      <i class="checkers" aria-hidden="true"></i> PEOPLE. PLACES. A SENSE OF
+      BELONGING.
+    </span>
+    <span>Croatia & the world beyond</span>
+  </div>
+  <section class="hero" aria-label="Featured stories">
+    <article class="hero-story">
+      <img
+        src={href('images/coast.webp')}
+        alt="Zadar rooftops beside the Adriatic Sea"
+        width="1440"
+        height="960"
+        fetchpriority="high"
+      />
+      <div class="hero-copy">
+        <span class="eyebrow">A new chapter · Our community</span>
+        <h1>
+          A connection that
+          <br />
+          feels like home.
+        </h1>
+        <p>
+          Stories, useful guides and real conversations for everyone with a
+          little Croatia in their life.
+        </p>
+        <a class="text-link" href={href('articles/welcome-to-the-community/')}>
+          Meet Croatian By Descent <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+    <div class="hero-side">
+      <article class="side-story">
+        <div>
+          <span class="eyebrow">Moving to Croatia</span>
+          <h2>
+            <a href={href('articles/moving-to-croatia/')}>
+              A new life in Croatia starts with a good plan.
+            </a>
+          </h2>
+          <p class="meta" style="margin-top:12px">
+            The practical starting guide
+          </p>
+        </div>
+        <img
+          src={href('images/town.webp')}
+          alt="Dubrovnik old town beside the Adriatic"
+          width="400"
+          height="400"
+        />
+      </article>
+      <article class="side-story">
+        <div>
+          <span class="eyebrow">Citizenship & ancestry</span>
+          <h2>
+            <a href={href('articles/croatian-citizenship-by-descent/')}>
+              Your roots. Your questions. Where to begin.
+            </a>
+          </h2>
+          <p class="meta" style="margin-top:12px">
+            A guide to the first steps
+          </p>
+        </div>
+        <img
+          src={href('images/inland.webp')}
+          alt="Boats in Rovinj harbour in Istria"
+          width="400"
+          height="400"
+        />
+      </article>
+      <div class="start-box">
+        <span class="eyebrow">New here?</span>
+        <h2>Find your starting point.</h2>
+        <p>
+          Planning a move, tracing your roots or simply curious about Croatia?
+        </p>
+        <a class="text-link" href={href('moving-to-croatia/')}>
+          Explore the guides →
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-heading">
+      <h2>The latest from our community</h2>
+      <a href={href('search/')}>All articles ↗</a>
+    </div>
+    <div class="grid3">
+      {latest.map((article) => (
+        <Card article={article} />
+      ))}
+    </div>
+  </section>
+  <section class="band">
+    <div>
+      <span class="eyebrow">Make your move</span>
+      <h2>
+        Less guesswork.
+        <br />
+        More everyday Croatia.
+      </h2>
+      <p>
+        Moving is about more than arriving. Get a clearer picture of the
+        practical details before you pack.
+      </p>
+      <a class="text-link" href={href('moving-to-croatia/')}>
+        All moving guides ↗
+      </a>
+    </div>
+    <ul class="link-list">
+      {[
+        'Cost of living in Croatia',
+        'Renting in Croatia',
+        'Healthcare in Croatia',
+        'Working remotely from Croatia',
+        'Learning Croatian',
+      ].map((t) => (
+        <li>
+          <a href={href('articles/' + slugify(t) + '/')}>
+            {t}
+            <span>↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section class="video-band">
+    <span class="eyebrow">From the channels</span>
+    <h2>See the story. Feel the place.</h2>
+    <p>
+      Follow Carl’s personal journey and explore Croatia through film. Selected
+      videos will appear here after editorial approval.
+    </p>
+    <div class="channel-grid">
+      {channels.map((c) => (
+        <div class="channel">
+          <span class="play" aria-hidden="true">
+            ▶
+          </span>
+          <div>
+            <h3>
+              <a href={c.url}>{c.name} ↗</a>
+            </h3>
+            <p>{c.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="grid3" style="margin-top:25px">
+      {videos.slice(0, 3).map((v) => (
+        <article class="card">
+          <a href={href('videos/' + v.slug + '/')}>
+            <img
+              src={`https://i.ytimg.com/vi/${youtubeId(v.youtubeUrl)}/hqdefault.jpg`}
+              alt={`Video thumbnail: ${v.title}`}
+              width="480"
+              height="360"
+              loading="lazy"
+            />
+            <h3>{v.title}</h3>
+          </a>
+        </article>
+      ))}
+    </div>
+    <a class="text-link" href={href('videos/')} style="margin-top:25px">
+      Explore the video library →
+    </a>
+  </section>
+  <section class="section">
+    <div class="section-heading">
+      <h2>Find your corner of Croatia</h2>
+      <a href={href('cities-and-regions/')}>All cities & regions ↗</a>
+    </div>
+    <div class="place-grid">
+      {[
+        ['Zadar', 'coast'],
+        ['Dubrovnik', 'town'],
+        ['Istria', 'inland'],
+        ['Dalmatia', 'coast'],
+      ].map(([name, img]) => (
+        <a
+          class="place-card"
+          href={href('cities-and-regions/' + slugify(name) + '/')}
+        >
+          <img
+            src={href('images/' + img + '.webp')}
+            alt={
+              img === 'coast'
+                ? 'Zadar rooftops and the Adriatic'
+                : img === 'town'
+                  ? 'Dubrovnik old town and coast'
+                  : 'Rovinj harbour in Istria'
+            }
+            loading="lazy"
+            width="500"
+            height="380"
+          />
+          <span>{name} ↗</span>
+        </a>
+      ))}
+    </div>
+    <div class="place-links">
+      {places
+        .filter(
+          (p) => !['Zadar', 'Dubrovnik', 'Istria', 'Dalmatia'].includes(p),
+        )
+        .map((p) => (
+          <a href={href('cities-and-regions/' + slugify(p) + '/')}>{p} ↗</a>
+        ))}
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-heading">
+      <h2>Roots, returns & fresh starts</h2>
+      <a href={href('croatian-diaspora/')}>Diaspora stories ↗</a>
+    </div>
+    <div class="two-column">
+      <div>
+        <span class="eyebrow">Featured interviews</span>
+        <h2 style="margin-bottom:18px">
+          Every journey has a person behind it.
+        </h2>
+        <p>
+          Did your family leave Croatia? Have you moved back, restored a family
+          home or found relatives in a village you had only heard about? We’d
+          love to hear your story.
+        </p>
+        <a class="button" href={href('contact/?type=Interview%20request')}>
+          Share your Croatian chapter ↗
+        </a>{' '}
+        <a class="text-link" href={href('interviews/')}>
+          Explore interviews
+        </a>
+      </div>
+      <div class="start-box">
+        <span class="eyebrow">Citizenship by descent</span>
+        <h3>Connecting the generations</h3>
+        <p>
+          Explore ancestry, documents, consulates and the questions that can
+          help you prepare.
+        </p>
+        <a class="text-link" href={href('citizenship-by-descent/')}>
+          Visit the citizenship hub →
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section grid3">
+    <div>
+      <span class="eyebrow">Property</span>
+      <h3>A place to call your own</h3>
+      <p>Renting, buying and the questions worth asking before committing.</p>
+      <a class="text-link" href={href('property/')}>
+        Explore property →
+      </a>
+    </div>
+    <div>
+      <span class="eyebrow">Popular articles</span>
+      <h3>Start with the essentials</h3>
+      <p>
+        Reader favourites will appear as the community grows. For now, begin
+        with our moving guide.
+      </p>
+      <a class="text-link" href={href('articles/moving-to-croatia/')}>
+        Read the starting guide →
+      </a>
+    </div>
+    <div>
+      <span class="eyebrow">Croatia news</span>
+      <h3>Context comes first</h3>
+      <p>
+        Our news section is taking shape. Reporting will include sources, dates
+        and named authors.
+      </p>
+      <a class="text-link" href={href('croatia-news/')}>
+        Visit the news desk →
+      </a>
+    </div>
+  </section>
+  <Newsletter />
+</Base>

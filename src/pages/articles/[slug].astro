@@ -1,0 +1,221 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import Video from '../../components/Video.astro';
+import { publishedArticles } from '../../data/articles';
+import { href, dateLabel, sections } from '../../data/site';
+import { videos, youtubeId } from '../../data/videos';
+export async function getStaticPaths() {
+  return (await publishedArticles()).map((article) => ({
+    params: { slug: article.data.slug },
+    props: { article },
+  }));
+}
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+const { article } = Astro.props;
+const d = article.data;
+const { Content } = await render(article);
+const section = sections.find((s) => s.slug === d.category)!;
+const url = new URL(href('articles/' + d.slug + '/'), Astro.site).href;
+const all = await publishedArticles();
+const related = all
+  .filter(
+    (a) =>
+      a.id !== article.id &&
+      (d.relatedSlugs.includes(a.data.slug) || a.data.category === d.category),
+  )
+  .slice(0, 3);
+const relatedVideos = videos.filter((v) => v.relatedArticles.includes(d.slug));
+const embedded = videos.find((v) => v.youtubeUrl === d.youtubeUrl);
+const schema: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    image: [new URL(href(d.featuredImage), Astro.site).href],
+    author: {
+      '@type': d.author.includes('editorial team') ? 'Organization' : 'Person',
+      name: d.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Croatian By Descent Community',
+    },
+    datePublished: d.publishedDate.toISOString(),
+    dateModified: (d.updatedDate || d.publishedDate).toISOString(),
+    mainEntityOfPage: url,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { name: 'Home', item: new URL(href(), Astro.site).href },
+      {
+        name: section.title,
+        item: new URL(href(section.slug + '/'), Astro.site).href,
+      },
+      { name: d.title, item: url },
+    ].map((s, i) => ({ '@type': 'ListItem', position: i + 1, ...s })),
+  },
+];
+if (embedded)
+  schema.push({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: embedded.title,
+    description: embedded.description,
+    uploadDate: embedded.date.toISOString(),
+    thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId(embedded.youtubeUrl)}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId(embedded.youtubeUrl)}`,
+  });
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  image={d.featuredImage}
+  noindex={d.sample}
+  schema={schema}
+>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={href()}>Home</a>
+    <span>/</span>
+    <a href={href(section.slug + '/')}>{section.title}</a>
+    <span>/</span>
+    <span>{d.title}</span>
+  </nav>
+  <article class="article-wrap">
+    <span class="eyebrow">
+      {section.title}
+      {d.sample ? ' · Sample content' : ''}
+    </span>
+    <h1>{d.title}</h1>
+    <p style="font-size:20px;color:var(--muted)">{d.description}</p>
+    <div class="meta">
+      By {d.author} · Published{' '}
+      <time datetime={d.publishedDate.toISOString()}>
+        {dateLabel(d.publishedDate)}
+      </time>
+      {d.updatedDate && <> · Updated {dateLabel(d.updatedDate)}</>}
+    </div>
+    {d.sample && (
+      <aside class="notice">
+        <strong>Sample content — prepared for editorial review.</strong>
+        <p>
+          This original starting guide or template is not a reported news event,
+          a verified interview or a finished professional reference. Sample
+          pages are excluded from search indexing and RSS.
+        </p>
+      </aside>
+    )}
+    {d.reviewedDate && (
+      <aside class="notice">
+        <strong>
+          Last reviewed:{' '}
+          <time datetime={d.reviewedDate.toISOString()}>
+            {dateLabel(d.reviewedDate)}
+          </time>
+        </strong>
+        <p>
+          Rules can change. This is general information, not legal, immigration,
+          tax or property advice. Confirm your circumstances with the official
+          sources below and a qualified professional before acting.
+        </p>
+      </aside>
+    )}
+    <figure class="article-image">
+      <img
+        src={href(d.featuredImage)}
+        alt={d.imageAlt}
+        width="1440"
+        height="960"
+      />
+      <figcaption>
+        {d.imageAlt}.{' '}
+        <a href={href('image-credits/')}>Photograph & licence credits</a>
+      </figcaption>
+    </figure>
+    {d.type === 'interview' && (
+      <div class="notice">
+        <strong>
+          {d.personName ||
+            'Interview template — no participant has been selected'}
+        </strong>
+        <p>
+          Location: {d.location || 'To be confirmed'} · Moved from:{' '}
+          {d.movedFrom || 'To be confirmed'}
+        </p>
+      </div>
+    )}
+    {embedded && <Video url={embedded.youtubeUrl} title={embedded.title} />}
+    <div class="prose">
+      <Content />
+    </div>
+    {d.quotes.length > 0 && (
+      <section class="prose">
+        <h2>In their words</h2>
+        {d.quotes.map((q) => (
+          <blockquote>{q}</blockquote>
+        ))}
+      </section>
+    )}
+    {d.officialSources.length > 0 && (
+      <section class="prose">
+        <h2>Official sources</h2>
+        <ul>
+          {d.officialSources.map((s) => (
+            <li>
+              <a href={s.url}>{s.label} ↗</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+    {d.sourceUrl && (
+      <p class="form-note">
+        Source: <a href={d.sourceUrl}>{d.source || d.sourceUrl}</a>
+      </p>
+    )}
+    <aside class="notice">
+      <a href={href('contact/?type=Correction')}>
+        Spotted something that needs correcting? Tell us →
+      </a>
+    </aside>
+    {d.type === 'interview' && (
+      <a class="button" href={href('contact/?type=Interview%20request')}>
+        Request an interview ↗
+      </a>
+    )}
+    <section class="prose">
+      <h2>Related videos</h2>
+      {relatedVideos.length ? (
+        relatedVideos.map((v) => (
+          <p>
+            <a href={href('videos/' + v.slug + '/')}>{v.title}</a>
+          </p>
+        ))
+      ) : (
+        <p>
+          Selected companion videos will appear after approval.{' '}
+          <a href={href('videos/')}>Explore the channels and video library</a>.
+        </p>
+      )}
+    </section>
+  </article>
+  {related.length > 0 && (
+    <section class="section" style="margin-bottom:50px">
+      <div class="section-heading">
+        <h2>Keep exploring</h2>
+      </div>
+      <div class="grid3">
+        {related.map((a) => (
+          <Card article={a} />
+        ))}
+      </div>
+    </section>
+  )}
+</Base>

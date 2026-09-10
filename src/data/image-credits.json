@@ -1,0 +1,47 @@
+[
+  {
+    "id": "zadar",
+    "title": "Panorama Zadra.jpg",
+    "creator": "August Dominus",
+    "creatorUrl": "https://commons.wikimedia.org/wiki/User:August_Dominus",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_Zadra.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Panorama_Zadra.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "downloadDate": "2026-09-10",
+    "caption": "Zadar rooftops and Adriatic coast",
+    "changes": "Resized, converted to WebP and cropped by the page layout. Adapted images remain CC BY-SA 4.0.",
+    "sourceWebsite": "Wikimedia Commons",
+    "localFile": "/images/coast.webp"
+  },
+  {
+    "id": "dubrovnik",
+    "title": "Panoramic view of the old city of Dubrovnik - September 2017.jpg",
+    "creator": "Martin Falbisoner",
+    "creatorUrl": "https://commons.wikimedia.org/wiki/User:Martin_Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_the_old_city_of_Dubrovnik_-_September_2017.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Panoramic_view_of_the_old_city_of_Dubrovnik_-_September_2017.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "downloadDate": "2026-09-10",
+    "caption": "Dubrovnik old town and Adriatic coastline",
+    "changes": "Resized, converted to WebP and cropped by the page layout. Adapted images remain CC BY-SA 4.0.",
+    "sourceWebsite": "Wikimedia Commons",
+    "localFile": "/images/town.webp"
+  },
+  {
+    "id": "rovinj",
+    "title": "Croatia Rovinj Harbour.jpg",
+    "creator": "Georg Karl Ell",
+    "creatorUrl": "https://commons.wikimedia.org/wiki/User:Georg_Karl_Ell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Croatia_Rovinj_Harbour.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Croatia_Rovinj_Harbour.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "downloadDate": "2026-09-10",
+    "caption": "Rovinj harbour, Istria",
+    "changes": "Resized, converted to WebP and cropped by the page layout. Adapted images remain CC BY-SA 4.0.",
+    "sourceWebsite": "Wikimedia Commons",
+    "localFile": "/images/inland.webp"
+  }
+]

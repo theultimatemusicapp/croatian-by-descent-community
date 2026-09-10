@@ -1,0 +1,235 @@
+---
+import '../styles/global.css';
+import { brand, href, sections, channels } from '../data/site';
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>[];
+}
+const {
+  title,
+  description = 'Stories, practical guides and a shared connection to Croatia. Explore life, ancestry and the Croatian diaspora with Carl Tomich.',
+  image = '/images/coast.webp',
+  noindex = false,
+  schema = [],
+} = Astro.props;
+const canonical = new URL(
+  Astro.url.pathname.endsWith('/404/') ? href('404.html') : Astro.url.pathname,
+  Astro.site,
+);
+const imageUrl = image.startsWith('https://')
+  ? image
+  : new URL(href(image), Astro.site).href;
+const analyticsUrl = import.meta.env.PUBLIC_ANALYTICS_SCRIPT_URL;
+const analyticsDomain = import.meta.env.PUBLIC_ANALYTICS_DOMAIN;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | {brand}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#172d39" />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, follow' : 'index, follow'}
+    />
+    <meta
+      property="og:type"
+      content={
+        schema.some((s) => s['@type'] === 'Article') ? 'article' : 'website'
+      }
+    />
+    <meta property="og:site_name" content={brand} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <link rel="icon" href={href('favicon.svg')} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Croatian By Descent RSS"
+      href={href('rss.xml')}
+    />
+    {import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
+      <meta
+        name="google-site-verification"
+        content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION}
+      />
+    )}
+    {analyticsUrl && analyticsDomain && (
+      <script
+        is:inline
+        defer
+        src={analyticsUrl}
+        data-domain={analyticsDomain}
+      ></script>
+    )}
+    {schema.map((item) => (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(item).replace(/</g, '\u003c')}
+      ></script>
+    ))}
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
+    <div class="topbar">
+      <div class="wrap">
+        <span>A connection to Croatia. Wherever you call home.</span>
+        <a href={href('about/')}>An independent community by Carl Tomich ↗</a>
+      </div>
+    </div>
+    <header class="wrap">
+      <div class="masthead">
+        <a class="brand" href={href()}>
+          Croatian By Descent
+          <span>Roots in Croatia. Stories without borders.</span>
+        </a>
+        <div class="mast-right">
+          <a href={href('about/')}>Our story</a>
+          <a class="button" href={href('contact/')}>
+            Share your story ↗
+          </a>
+          <span class="flag" role="img" aria-label="Croatian flag">
+            🇭🇷
+          </span>
+          <button
+            class="menu-button"
+            aria-expanded="false"
+            aria-controls="main-nav"
+            id="menu-toggle"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <a
+          href={href()}
+          aria-current={Astro.url.pathname === href() ? 'page' : undefined}
+        >
+          Home
+        </a>
+        {sections.map((s) => (
+          <a
+            href={href(s.slug + '/')}
+            aria-current={
+              Astro.url.pathname.includes('/' + s.slug + '/')
+                ? 'page'
+                : undefined
+            }
+          >
+            {s.slug === 'citizenship-by-descent'
+              ? 'Citizenship'
+              : s.slug === 'croatian-diaspora'
+                ? 'Diaspora'
+                : s.slug === 'videos'
+                  ? 'Videos'
+                  : s.slug === 'property'
+                    ? 'Property'
+                    : s.title}
+          </a>
+        ))}
+        <a href={href('search/')} aria-label="Search articles">
+          Search ⌕
+        </a>
+      </nav>
+    </header>
+    <main class="wrap" id="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href={href()}>
+              Croatian By Descent
+            </a>
+            <p>
+              A place for the curious, the connected and those finding their way
+              back. Croatia, through people and everyday life.
+            </p>
+            <span class="flag" role="img" aria-label="Croatian flag">
+              🇭🇷
+            </span>
+          </div>
+          <div>
+            <h3>Explore Croatia</h3>
+            <ul>
+              {sections.slice(0, 4).map((s) => (
+                <li>
+                  <a href={href(s.slug + '/')}>{s.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Our community</h3>
+            <ul>
+              <li>
+                <a href={href('croatian-diaspora/')}>Diaspora stories</a>
+              </li>
+              <li>
+                <a href={href('interviews/')}>Interviews</a>
+              </li>
+              <li>
+                <a href={href('contact/')}>Contact & submissions</a>
+              </li>
+              <li>
+                <a href={href('about/')}>About Carl</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Keep in touch</h3>
+            <ul>
+              {channels.map((c) => (
+                <li>
+                  <a href={c.url}>{c.name} ↗</a>
+                </li>
+              ))}
+              <li>
+                <a href={href('rss.xml')}>RSS feed</a>
+              </li>
+              <li>
+                <a href={href('editorial-policy/')}>Editorial policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>
+            © {new Date().getFullYear()} Croatian By Descent Community
+          </span>
+          <span>
+            <a href={href('image-credits/')}>Image credits</a> ·{' '}
+            <a href={href('privacy/')}>Privacy</a> ·{' '}
+            <a href={href('contact/')}>Corrections</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('menu-toggle')?.addEventListener('click', () => {
+        const button = document.getElementById('menu-toggle')!;
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        document.getElementById('main-nav')?.classList.toggle('open', !isOpen);
+      });
+    </script>
+  </body>
+</html>

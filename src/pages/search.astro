@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import { publishedArticles } from '../data/articles';
+import { href, sections } from '../data/site';
+const articles = await publishedArticles();
+---
+
+<Base title="Search the community" noindex={true}>
+  <header class="page-header">
+    <span class="eyebrow">Find a useful starting point</span>
+    <h1>What brings you to Croatia?</h1>
+    <p>Search guides, places and stories by title, subject or location.</p>
+  </header>
+  <label for="search">Search articles</label>
+  <input
+    class="search-input"
+    id="search"
+    type="search"
+    placeholder="Try citizenship, renting or Zadar…"
+    autocomplete="off"
+  />
+  <label for="category-filter">Section</label>
+  <select
+    id="category-filter"
+    style="padding:10px;background:white;border:1px solid #a7b2b2;margin:0 0 20px 10px"
+  >
+    <option value="">All sections</option>
+    {sections.map((s) => (
+      <option value={s.slug}>{s.title}</option>
+    ))}
+  </select>
+  <p id="result-count" class="meta" role="status" aria-live="polite">
+    {articles.length} articles
+  </p>
+  <div style="margin-bottom:55px">
+    {articles.map((a) => (
+      <article
+        class="result"
+        data-search={`${a.data.title} ${a.data.description} ${a.data.tags.join(' ')} ${a.data.location || ''}`.toLowerCase()}
+        data-category={a.data.category}
+      >
+        <span class="eyebrow">
+          {sections.find((s) => s.slug === a.data.category)?.title}
+          {a.data.sample ? ' · Sample' : ''}
+        </span>
+        <h2>
+          <a href={href('articles/' + a.data.slug + '/')}>{a.data.title}</a>
+        </h2>
+        <p>{a.data.description}</p>
+      </article>
+    ))}
+    <p id="no-results" hidden>
+      No matches. Try a broader term such as “Croatia” or clear the section
+      filter.
+    </p>
+  </div>
+  <noscript>
+    <p>
+      JavaScript is off. All articles are listed above so you can still browse
+      them.
+    </p>
+  </noscript>
+</Base>
+<script>
+  const input = document.getElementById('search') as HTMLInputElement;
+  const category = document.getElementById(
+    'category-filter',
+  ) as HTMLSelectElement;
+  function filter() {
+    const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let count = 0;
+    document.querySelectorAll<HTMLElement>('[data-search]').forEach((el) => {
+      el.hidden = !(
+        terms.every((t) => el.dataset.search?.includes(t)) &&
+        (!category.value || el.dataset.category === category.value)
+      );
+      if (!el.hidden) count++;
+    });
+    document.getElementById('result-count')!.textContent =
+      `${count} article${count === 1 ? '' : 's'}`;
+    document.getElementById('no-results')!.hidden = count > 0;
+  }
+  input.addEventListener('input', filter);
+  category.addEventListener('change', filter);
+  const q = new URLSearchParams(location.search).get('q');
+  if (q) {
+    input.value = q;
+    filter();
+  }
+</script>

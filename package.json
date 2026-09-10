@@ -1,0 +1,32 @@
+{
+  "name": "croatian-by-descent-community",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "check": "astro check",
+    "build": "node scripts/prepare-images.mjs && astro check && astro build && node scripts/validate.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^8.0.1",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.5.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "^7.3.2",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.0"
+  },
+  "devDependencies": {
+    "cheerio": "^1.1.2",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

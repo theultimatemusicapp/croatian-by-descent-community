@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import Video from '../../components/Video.astro';
+import Card from '../../components/Card.astro';
+import { videos, youtubeId } from '../../data/videos';
+import { href, dateLabel } from '../../data/site';
+import { publishedArticles } from '../../data/articles';
+export function getStaticPaths() {
+  return videos.map((video) => ({
+    params: { slug: video.slug },
+    props: { video },
+  }));
+}
+interface Props {
+  video: (typeof videos)[number];
+}
+const { video: v } = Astro.props;
+const related = (await publishedArticles()).filter((a) =>
+  v.relatedArticles.includes(a.data.slug),
+);
+---
+
+<Base
+  title={v.title}
+  description={v.description}
+  image={`https://i.ytimg.com/vi/${youtubeId(v.youtubeUrl)}/hqdefault.jpg`}
+  schema={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: v.title,
+      description: v.description,
+      uploadDate: v.date.toISOString(),
+      thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId(v.youtubeUrl)}/hqdefault.jpg`,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId(v.youtubeUrl)}`,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        ['Home', href()],
+        ['Videos', href('videos/')],
+        [v.title, Astro.url.pathname],
+      ].map(([name, path], i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name,
+        item: new URL(path, Astro.site).href,
+      })),
+    },
+  ]}
+>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={href()}>Home</a> / <a href={href('videos/')}>Videos</a> /{' '}
+    <span>{v.title}</span>
+  </nav>
+  <header class="page-header">
+    <span class="eyebrow">
+      {v.channel} · {v.category}
+    </span>
+    <h1>{v.title}</h1>
+    <p>{v.description}</p>
+    <span class="meta">
+      {v.location} · {dateLabel(v.date)}
+    </span>
+  </header>
+  <Video url={v.youtubeUrl} title={v.title} />
+  <section class="section" style="margin-bottom:50px">
+    <div class="section-heading">
+      <h2>Related reading</h2>
+    </div>
+    <div class="grid3">
+      {related.map((article) => (
+        <Card article={article} />
+      ))}
+    </div>
+    {!related.length && (
+      <p>Related reporting will be linked here as it is published.</p>
+    )}
+  </section>
+</Base>

@@ -1,0 +1,38 @@
+---
+import { youtubeId } from '../data/videos';
+interface Props {
+  url: string;
+  title: string;
+}
+const { url, title } = Astro.props;
+const id = youtubeId(url);
+---
+
+<div class="video-facade" data-video-id={id} data-video-title={title}>
+  <img
+    src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+    alt={`Video thumbnail: ${title}`}
+    loading="lazy"
+    width="480"
+    height="360"
+  />
+  <button type="button">▶ Load video from YouTube</button>
+</div>
+<p class="form-note">
+  Playing loads YouTube’s privacy-enhanced player. YouTube may process your
+  data. <a href={url}>Watch directly on YouTube ↗</a>
+</p>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-video-id]').forEach((el) => {
+    el.querySelector('button')?.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${el.dataset.videoId}?autoplay=1`;
+      f.title = el.dataset.videoTitle || 'YouTube video';
+      f.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      el.replaceChildren(f);
+    });
+  });
+</script>

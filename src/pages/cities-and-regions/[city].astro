@@ -1,0 +1,208 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import Card from '../../components/Card.astro';
+import { places, slugify, href } from '../../data/site';
+import { publishedArticles } from '../../data/articles';
+import { videos } from '../../data/videos';
+export function getStaticPaths() {
+  return places.map((name) => ({
+    params: { city: slugify(name) },
+    props: { name },
+  }));
+}
+const { name } = Astro.props;
+const cityEntry = (await getCollection('cities')).find(
+  (c) => c.data.name === name,
+)!;
+const { Content } = await render(cityEntry);
+const articles = (await publishedArticles()).filter(
+  (a) => a.data.location === name,
+);
+const relatedVideos = videos.filter((v) => v.location === name);
+const topics = [
+  [
+    'Cost of living',
+    'Build a dated household budget using local quotes for the way you intend to live. Verified cost comparisons are still to be researched.',
+  ],
+  [
+    'Rental prices',
+    'Compare like-for-like properties and full tenancy periods. Current prices will only be added with a source and date.',
+  ],
+  [
+    'Property',
+    'Investigate ownership, condition, permissions and the full costs with independent professional advice. Local reporting is pending.',
+  ],
+  [
+    'Transport',
+    'Check current timetables and test regular journeys at the times you would use them. Verified local links will be added after review.',
+  ],
+  [
+    'Beaches and nature',
+    'Research access, seasonal conditions and travel time rather than assuming a location suits every routine. Local recommendations are pending.',
+  ],
+  [
+    'Work opportunities',
+    'Investigate your sector, language requirements and the right to work for your circumstances. Verified local opportunities are pending.',
+  ],
+  [
+    'Lifestyle',
+    'Compare neighbourhoods through ordinary errands, evenings and quieter months. Local perspectives will be added through reporting.',
+  ],
+  [
+    'Pros and cons',
+    'Record both the advantages and compromises for your household. There is no single ranking that fits everyone.',
+  ],
+];
+const photo =
+  name === 'Zadar'
+    ? 'coast'
+    : name === 'Dubrovnik'
+      ? 'town'
+      : name === 'Istria'
+        ? 'inland'
+        : null;
+---
+
+<Base
+  title={`${name}: living, housing & local life`}
+  description={`Explore ${name} with an everyday-life checklist for costs, housing, transport, work and community.`}
+  noindex={cityEntry.data.sample}
+  schema={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        ['Home', href()],
+        ['Cities & Regions', href('cities-and-regions/')],
+        [name, Astro.url.pathname],
+      ].map(([title, path], i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: title,
+        item: new URL(path, Astro.site).href,
+      })),
+    },
+  ]}
+>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href={href()}>Home</a> /{' '}
+    <a href={href('cities-and-regions/')}>Cities & Regions</a> /{' '}
+    <span>{name}</span>
+  </nav>
+  <header class="page-header">
+    <span class="eyebrow">Find your corner of Croatia</span>
+    <h1>Living in {name}</h1>
+    <p>
+      A place to start your research, compare everyday needs and make room for
+      local perspectives.
+    </p>
+    <span class="meta">
+      Last updated: {cityEntry.data.updatedDate.toISOString().slice(0, 10)}
+      {cityEntry.data.sample ? ' · Guide framework' : ''}
+    </span>
+  </header>
+  {photo && (
+    <figure class="article-image">
+      <img
+        src={href('images/' + photo + '.webp')}
+        alt={
+          name === 'Istria'
+            ? 'Rovinj harbour in Istria'
+            : `${name} and the Adriatic Sea`
+        }
+        width="1440"
+        height="960"
+      />
+      <figcaption>
+        <a href={href('image-credits/')}>Image credits and licence</a>
+      </figcaption>
+    </figure>
+  )}
+  <div class="two-column">
+    <section>
+      {cityEntry.data.sample && (
+        <aside class="notice">
+          This city guide is a clearly labelled research framework. Detailed
+          local reporting, dated prices and interviews have not yet been
+          completed.
+        </aside>
+      )}
+      <div class="prose">
+        <Content />
+      </div>
+      {topics.map(([title, text]) => (
+        <details class="check-details">
+          <summary>{title}</summary>
+          <p>{text}</p>
+        </details>
+      ))}
+      <section class="section">
+        <h2>Local interviews</h2>
+        <p style="margin-top:18px">
+          No verified local interviews have been published yet.
+        </p>
+        <a class="text-link" href={href('contact/?type=Interview%20request')}>
+          Share your experience of {name} →
+        </a>
+      </section>
+    </section>
+    <aside>
+      <div class="start-box">
+        <span class="eyebrow">Explore the area</span>
+        <h2>Map of {name}</h2>
+        <p>
+          Map embed placeholder. Open an external map to explore the area; no
+          map provider loads on this page.
+        </p>
+        <a
+          class="text-link"
+          href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(name + ', Croatia')}`}
+        >
+          Open OpenStreetMap ↗
+        </a>
+      </div>
+      <div class="section">
+        <h3>Related videos</h3>
+        {relatedVideos.length ? (
+          relatedVideos.map((v) => (
+            <p>
+              <a class="text-link" href={href('videos/' + v.slug + '/')}>
+                {v.title}
+              </a>
+            </p>
+          ))
+        ) : (
+          <p>Approved local videos will appear here.</p>
+        )}
+        <a class="text-link" href={href('videos/')}>
+          Visit the video library →
+        </a>
+      </div>
+    </aside>
+  </div>
+  <section class="section" style="margin-bottom:50px">
+    <div class="section-heading">
+      <h2>Related articles</h2>
+    </div>
+    {articles.length ? (
+      <div class="grid3">
+        {articles.map((a) => (
+          <Card article={a} />
+        ))}
+      </div>
+    ) : (
+      <p>
+        Local reporting is coming. Start with{' '}
+        <a class="text-link" href={href('articles/moving-to-croatia/')}>
+          our moving guide
+        </a>{' '}
+        and{' '}
+        <a class="text-link" href={href('articles/renting-in-croatia/')}>
+          rental checklist
+        </a>
+        .
+      </p>
+    )}
+  </section>
+</Base>
