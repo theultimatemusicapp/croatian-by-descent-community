@@ -1,8 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
 import Card from '../components/Card.astro';
+import Video from '../components/Video.astro';
 import { publishedArticles } from '../data/articles';
 import { videos, youtubeId } from '../data/videos';
+const introduction = videos.find(
+  (v) => v.slug === 'croatian-citizenship-how-i-got-approved',
+);
+const introductionSchema = introduction
+  ? [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: introduction.title,
+        description: introduction.description,
+        uploadDate: introduction.date.toISOString(),
+        thumbnailUrl: `https://i.ytimg.com/vi/${youtubeId(introduction.youtubeUrl)}/hqdefault.jpg`,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId(introduction.youtubeUrl)}`,
+      },
+    ]
+  : [];
 const all = await publishedArticles();
 const latest = all
   .filter((a) => !['news', 'interview', 'video'].includes(a.data.type))
@@ -12,6 +29,7 @@ import { href, channels, places, slugify } from '../data/site';
 ---
 
 <Base
+  schema={introductionSchema}
   title="Croatia, a little closer"
   description="A shared connection to Croatia. Original guides to moving, citizenship by descent, places and diaspora life, from Carl Tomich."
 >
@@ -98,6 +116,37 @@ import { href, channels, places, slugify } from '../data/site';
       </div>
     </div>
   </section>
+  {introduction && (
+    <section
+      class="section"
+      id="introduction"
+      aria-labelledby="introduction-title"
+    >
+      <div class="section-heading">
+        <h2 id="introduction-title">Meet Carl. This is where it begins.</h2>
+      </div>
+      <div class="two-column">
+        <div>
+          <Video url={introduction.youtubeUrl} title={introduction.title} />
+        </div>
+        <div>
+          <span class="eyebrow">Our introduction · Citizenship by descent</span>
+          <h3>How I became a Croatian citizen</h3>
+          <p>
+            From researching family records to receiving approval, Carl shares
+            the personal journey behind Croatian By Descent Community.
+          </p>
+          <p>
+            This is Carl’s own experience. Always confirm current citizenship
+            requirements with the relevant Croatian authority.
+          </p>
+          <a class="text-link" href={href('videos/' + introduction.slug + '/')}>
+            Watch the introduction & explore related guides →
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
   <section class="section">
     <div class="section-heading">
       <h2>The latest from our community</h2>
@@ -146,8 +195,8 @@ import { href, channels, places, slugify } from '../data/site';
     <span class="eyebrow">From the channels</span>
     <h2>See the story. Feel the place.</h2>
     <p>
-      Follow Carl’s personal journey and explore Croatia through film. Selected
-      videos will appear here after editorial approval.
+      Follow Carl’s personal journey and explore Croatia through film. Start
+      with our introduction, then explore the channels for more stories.
     </p>
     <div class="channel-grid">
       {channels.map((c) => (

@@ -138,11 +138,11 @@ There is no fabricated participant or testimonial in the starter. The interview 
 
 ## Add an approved video
 
-No videos are imported automatically. The live list begins as `[]`.
+No videos are imported automatically. The introduction video is approved and included. Add further videos only after Carl’s approval.
 
 1. Show Carl the proposed title, channel and YouTube URL and obtain approval.
 2. Copy the object shape from `templates/approved-video.example.json` into `src/data/approved-videos.json`.
-3. Replace every example value. Use an ordinary YouTube `watch?v=` or `youtu.be/` URL with the actual 11-character ID. Set `approved: true` only after approval. Choose `Carl Tomich` or `Globe Travel Adventures` as `channel`.
+3. Replace every example value. Use an ordinary YouTube `watch?v=` or `youtu.be/` URL with the actual 11-character ID. Set `approved: true` only after approval. Choose `Carl Tomich`, `Globe Travel Adventures` or `Croatian By Descent Community` as `channel`.
 4. Include an original description, real upload date, category, location and related article slugs. Separate objects with commas and keep the surrounding JSON array.
 5. Build. Each record automatically gets a thumbnail, a `/videos/slug/` page, metadata and VideoObject structured data. It also appears in the library and the latest-video area.
 6. To embed the same approved video in an article or interview, set the identical `youtubeUrl` in that article’s frontmatter.

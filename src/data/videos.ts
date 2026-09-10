@@ -17,7 +17,11 @@ const schema = z.object({
   title: z.string().min(5),
   youtubeUrl: z.url(),
   description: z.string().min(20),
-  channel: z.enum(['Carl Tomich', 'Globe Travel Adventures']),
+  channel: z.enum([
+    'Carl Tomich',
+    'Globe Travel Adventures',
+    'Croatian By Descent Community',
+  ]),
   date: z.coerce.date(),
   category: z.string(),
   location: z.string(),

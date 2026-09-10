@@ -728,7 +728,8 @@ p {
 .video-facade {
   background: #142c38;
   color: #fff;
-  min-height: 240px;
+  min-height: 0;
+  width: 100%;
   aspect-ratio: 16/9;
   display: grid;
   place-items: center;

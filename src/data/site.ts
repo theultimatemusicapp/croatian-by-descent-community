@@ -3,6 +3,11 @@ export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const href = (path = '') => `${base}/${path.replace(/^\//, '')}`;
 export const channels = [
   {
+    name: 'Croatian By Descent Community',
+    url: 'https://www.youtube.com/@CroatianByDescent',
+    detail: 'Citizenship, ancestry & the community',
+  },
+  {
     name: 'Carl Tomich',
     url: 'https://www.youtube.com/@thecarltomich',
     detail: 'Life, ancestry & conversations',
