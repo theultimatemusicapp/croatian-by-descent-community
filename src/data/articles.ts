@@ -19,6 +19,7 @@ export async function publishedArticles() {
   return all.sort(
     (a, b) =>
       b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf() ||
-      Number(b.data.featured) - Number(a.data.featured),
+      Number(b.data.featured) - Number(a.data.featured) ||
+      Number(a.data.sample) - Number(b.data.sample),
   );
 }
