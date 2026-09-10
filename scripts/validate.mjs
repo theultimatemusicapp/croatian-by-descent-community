@@ -1,4 +1,5 @@
 import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 if (existsSync('.env')) process.loadEnvFile('.env');
 import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -19,6 +20,12 @@ async function walk(dir) {
 await walk(root);
 const errors = [];
 const noindex = new Set();
+const articleAudit = [];
+const articlePhotos = new Map();
+const photoSources = new Map();
+const credits = JSON.parse(
+  await readFile('src/data/image-credits.json', 'utf8'),
+);
 let pages = 0,
   links = 0,
   schemas = 0;
@@ -104,6 +111,53 @@ for (const file of files.filter((p) => p.endsWith('.html'))) {
     $('script[type="application/ld+json"]').length < 2
   )
     errors.push(relative + ': missing article/breadcrumb schema');
+  if (relative.startsWith('articles/') && relative.endsWith('/index.html')) {
+    const body = $('.article-body').clone();
+    body.find('h1,h2,h3,h4,h5,h6,script,style').remove();
+    const wordCount = (
+      body.text().match(/[\p{L}\p{N}]+(?:[’'\-][\p{L}\p{N}]+)*/gu) || []
+    ).length;
+    if (wordCount < 2500)
+      errors.push(
+        `${relative}: ${wordCount} article body words; at least 2500 required`,
+      );
+    const photo = $('.article-image img').attr('src');
+    let photoHash = null;
+    let sourceUrl = null;
+    if (photo) {
+      const file = await resolveLocal(new URL(photo, expected));
+      if (file) {
+        photoHash = createHash('sha256')
+          .update(await readFile(file))
+          .digest('hex');
+        if (articlePhotos.has(photoHash))
+          errors.push(
+            `${relative}: hero photo duplicates ${articlePhotos.get(photoHash)}`,
+          );
+        articlePhotos.set(photoHash, relative);
+      }
+      const credit = credits.find(
+        (c) =>
+          new URL(base + c.localFile, site).href ===
+          new URL(photo, expected).href,
+      );
+      if (!credit?.sourceUrl || !credit?.license || !credit?.creator)
+        errors.push(relative + ': missing photo attribution');
+      sourceUrl = credit?.sourceUrl;
+      if (sourceUrl && photoSources.has(sourceUrl))
+        errors.push(
+          `${relative}: photo source duplicates ${photoSources.get(sourceUrl)}`,
+        );
+      if (sourceUrl) photoSources.set(sourceUrl, relative);
+    } else errors.push(relative + ': missing article hero photograph');
+    articleAudit.push({
+      path: relative,
+      wordCount,
+      photo,
+      photoHash,
+      sourceUrl,
+    });
+  }
   if ($('iframe[src*="youtube"]').length)
     errors.push(relative + ': player must wait for user click');
 }
@@ -143,6 +197,9 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
+console.log(
+  `Article requirements passed: ${articleAudit.length} articles, minimum ${Math.min(...articleAudit.map((a) => a.wordCount))} body words, ${articlePhotos.size} unique photographs and ${photoSources.size} unique licensed sources.`,
+);
 console.log(
   `Validated ${pages} pages, ${links} local links/assets and ${schemas} JSON-LD blocks. Removed ${noindex.size} noindex URLs from sitemap. RSS, robots, image alt text and canonical URLs passed.`,
 );

@@ -52,7 +52,7 @@ dist/                       Generated output; do not edit or commit
 
 1. Copy the appropriate file from `templates/` into `src/content/articles/` with a new filename ending in `.md`. In GitHub, use **Add file → Create new file**, enter that path, and paste the template. GitHub Desktop is another option for editing locally.
 2. Replace the frontmatter (between the `---` lines). Choose a unique, lower-case, hyphenated `slug` and a factual title and description. The URL is `/articles/your-slug/`.
-3. Write the body in ordinary Markdown. Use `##` for sections: the layout supplies the single H1. Do not copy the example body into a reported story.
+3. Write at least **2,500 words of substantive article body** in ordinary Markdown. Headings, frontmatter, navigation, related content and source URLs do not count. Use `##` for sections: the layout supplies the single H1. Do not pad with repeated paragraphs or invent reporting to reach the minimum. The production build rejects any published article below this threshold.
 4. Leave `draft: true` while working. Draft and future-dated articles do not get pages, listings or RSS entries.
 5. After editorial review, set `draft: false`. Set `sample: false` only when the article is genuinely ready for indexing. Do not remove a sample label merely to gain search traffic.
 6. Commit through GitHub or GitHub Desktop. After launch, a push to `main` runs the Pages workflow automatically. Check the Actions result before assuming publication succeeded.
@@ -117,10 +117,10 @@ Use your own photograph with permission or a properly licensed image. Never take
 node --input-type=module -e 'import sharp from "sharp"; await sharp("/absolute/path/to/source.jpg").resize({width:1440,withoutEnlargement:true}).webp({quality:82}).toFile("public/images/your-photo.webp")'
 ```
 
-3. Add a record to `src/data/image-credits.json` with `id`, `title`, `creator`, `creatorUrl`, `sourceWebsite`, `sourceUrl`, `downloadUrl`, `license`, `licenseUrl`, `downloadDate`, `caption`, `changes` and `localFile` (for example `/images/your-photo.webp`). The credits page includes new records automatically. The initial images are CC BY-SA 4.0 and adaptations must retain that licence.
-4. Use `/images/your-photo.webp` in frontmatter and supply accurate, useful alt text. `npm run build` creates the `-small.webp` version used by cards.
+3. Add a record to `src/data/image-credits.json` with `id`, `title`, `creator`, `creatorUrl`, `sourceWebsite`, `sourceUrl`, `downloadUrl`, `license`, `licenseUrl`, `downloadDate`, `caption`, `changes` and `localFile` (for example `/images/your-photo.webp`). The credits page includes new records automatically. Check the licence on each record; the collection includes several Creative Commons licences. Preserve any attribution and ShareAlike requirements for adaptations.
+4. Use `/images/your-photo.webp` in frontmatter and supply accurate, useful alt text. Every article must have its own distinct hero photograph. Another crop or filename of an existing article photo does not satisfy this requirement. The production build checks both image hashes and original source URLs, as well as attribution. `npm run build` creates the `-small.webp` version used by cards.
 
-Photographs must not falsely identify a person, event or location. The initial general-guide images show Zadar, Dubrovnik and Rovinj, identified in captions and credits. No AI-generated factual imagery is included.
+Photographs must not falsely identify a person, event or location. The article collection uses 24 distinct photographs of Croatian places and subjects, identified in captions and credits. No AI-generated factual imagery is included.
 
 ## Update a city or region
 
@@ -134,7 +134,7 @@ Copy `templates/interview.md` to `src/content/articles/`. Keep it as a draft unt
 
 Use `type: interview`, `category: interviews`, `personName`, `location`, `movedFrom`, dates, portrait/featured image and accurate alt text. Write the introduction, written summary and full article in Markdown. Add only real, accurately transcribed approved text to `quotes`. Include `relatedSlugs`. A finished interview requires a YouTube URL already in the approved list; the build rejects unapproved embeds. Use `tags` to connect it to diaspora topics if relevant.
 
-There is no fabricated participant or testimonial in the starter. The interview sample uses a landscape, not a portrait presented as a real interviewee.
+The published interview preparation guide contains no invented participant or testimony. New interviews require actual participants and approved material.
 
 ## Add an approved video
 
@@ -183,9 +183,9 @@ GitHub Pages `robots.txt` for this project lives under the project path. Crawler
 
 ## Before a real editorial launch
 
-- Review the original sample guides, verify claims and replace sample labels only when ready.
+- Continue reviewing the expanded article library and update dated claims as sources change. The former news and interview samples are now evergreen explainers, not invented reports or interviews.
 - Complete local reporting for the 13 city/region frameworks.
-- Approve the first videos and verify their playback/embedding permissions.
+- Verify playback and embedding permissions for each newly approved video; Carl’s introduction is already published.
 - Interview actual participants and obtain portrait, recording and quotation permissions.
 - Connect and test form/newsletter providers if wanted; finish the privacy notice first.
 - Add Search Console verification and submit the sitemap after the public site is live.
