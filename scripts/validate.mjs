@@ -21,6 +21,7 @@ await walk(root);
 const errors = [];
 const noindex = new Set();
 const articleAudit = [];
+const cityAudit = [];
 const articlePhotos = new Map();
 const photoSources = new Map();
 const credits = JSON.parse(
@@ -111,11 +112,71 @@ for (const file of files.filter((p) => p.endsWith('.html'))) {
     $('script[type="application/ld+json"]').length < 2
   )
     errors.push(relative + ': missing article/breadcrumb schema');
+  if (/^cities-and-regions\/[^/]+\/index\.html$/.test(relative)) {
+    const expectedTopics = [
+      'Cost of living',
+      'Rental prices',
+      'Property',
+      'Transport',
+      'Beaches and nature',
+      'Work opportunities',
+      'Lifestyle',
+      'Pros and cons',
+    ];
+    const topics = $('.city-topic');
+    if (topics.length !== expectedTopics.length)
+      errors.push(relative + ': expected eight city dropdowns');
+    topics.each((index, element) => {
+      const topic = $(element);
+      if (topic.find('summary').text().trim() !== expectedTopics[index])
+        errors.push(relative + ': city dropdown missing or out of order');
+      const body = topic.find('.city-topic-body').clone();
+      body.find('.city-topic-sources').remove();
+      const count = (
+        body
+          .find('p,li')
+          .toArray()
+          .map((el) => $(el).text())
+          .join(' ')
+          .match(/[\p{L}\p{N}]+(?:[’'\-][\p{L}\p{N}]+)*/gu) || []
+      ).length;
+      if (count < 180)
+        errors.push(
+          `${relative}: ${expectedTopics[index]} has only ${count} words`,
+        );
+      if (!topic.find('.city-topic-sources a[href^="https://"]').length)
+        errors.push(relative + ': city dropdown lacks a source');
+    });
+    const guide = $('.city-guide-content').clone();
+    guide.find('summary,.city-topic-sources').remove();
+    const words = (
+      guide
+        .find('p,li')
+        .toArray()
+        .map((el) => $(el).text())
+        .join(' ')
+        .match(/[\p{L}\p{N}]+(?:[’'\-][\p{L}\p{N}]+)*/gu) || []
+    ).length;
+    if (words < 2500)
+      errors.push(`${relative}: city guide has ${words} words; requires 2500`);
+    if (
+      /research framework|local reporting is pending|verified local links will be added|map embed placeholder/i.test(
+        $('main').text(),
+      )
+    )
+      errors.push(relative + ': city placeholder remains');
+    cityAudit.push({ path: relative, words, dropdowns: topics.length });
+  }
   if (relative.startsWith('articles/') && relative.endsWith('/index.html')) {
     const body = $('.article-body').clone();
     body.find('h1,h2,h3,h4,h5,h6,script,style').remove();
     const wordCount = (
-      body.text().match(/[\p{L}\p{N}]+(?:[’'\-][\p{L}\p{N}]+)*/gu) || []
+      body
+        .find('p,li')
+        .toArray()
+        .map((el) => $(el).text())
+        .join(' ')
+        .match(/[\p{L}\p{N}]+(?:[’'\-][\p{L}\p{N}]+)*/gu) || []
     ).length;
     if (wordCount < 2500)
       errors.push(
@@ -193,10 +254,15 @@ for (const name of [
   'robots.txt',
 ])
   if (!files.includes(path.join(root, name))) errors.push('Missing ' + name);
+if (cityAudit.length !== 13)
+  errors.push(`Expected 13 city/region pages, found ${cityAudit.length}`);
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
+console.log(
+  `City guide requirements passed: ${cityAudit.length} places, ${cityAudit.reduce((total, guide) => total + guide.dropdowns, 0)} populated dropdowns, minimum ${Math.min(...cityAudit.map((guide) => guide.words))} words.`,
+);
 console.log(
   `Article requirements passed: ${articleAudit.length} articles, minimum ${Math.min(...articleAudit.map((a) => a.wordCount))} body words, ${articlePhotos.size} unique photographs and ${photoSources.size} unique licensed sources.`,
 );

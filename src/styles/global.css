@@ -1028,3 +1028,27 @@ p {
     scroll-behavior: auto;
   }
 }
+
+.city-topic .city-topic-body p,
+.city-topic .city-topic-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.city-topic summary {
+  padding: 4px 0;
+}
+.city-topic summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+.city-topic .city-topic-sources {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 18px;
+}
+.city-topic .city-topic-sources h3 {
+  font-size: 1.05rem;
+}
+.city-topic .city-topic-sources li {
+  margin: 6px 0;
+}

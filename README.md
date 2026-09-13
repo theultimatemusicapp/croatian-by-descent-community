@@ -33,7 +33,7 @@ astro.config.mjs              Site origin, base path and integrations
 src/
   content.config.ts           Validated frontmatter schemas
   content/articles/           News, guides, interviews, property and diaspora Markdown
-  content/cities/             Editable Markdown for all 13 city/region pages
+  content/cities/             Metadata for all 13 city/region pages
   data/approved-videos.json   ONLY manually approved YouTube videos
   data/site.ts                Brand, navigation, topics, channels and places
   data/image-credits.json     Photographer, source, licence and download records
@@ -124,9 +124,13 @@ Photographs must not falsely identify a person, event or location. The article c
 
 ## Update a city or region
 
-Edit its Markdown in `src/content/cities/`, update `updatedDate` and write the verified local guide under the frontmatter. The shared layout supplies space for costs, rentals, property, transport, nature, work, lifestyle, pros and cons, interviews, videos and a map placeholder.
+Each of the 13 city/region pages has eight complete dropdown sections. Edit the matching entry in `src/data/city-guides.json` for the introduction and dropdown paragraphs, bullet lists and official source links. The required topics are cost of living, rental prices, property, transport, beaches and nature, work opportunities, lifestyle, and pros and cons. Keep that order and retain location-specific detail.
 
-The city pages start as labelled research frameworks with `sample: true` and `noindex`. Set `sample: false` only after the local reporting is complete. The common checklist prompts are in `src/pages/cities-and-regions/[city].astro`; adjust those as the city collection matures. Related articles and videos use the exact city/region name in `location`.
+Update the matching metadata and review date in `src/content/cities/`. Introductory Markdown is also retained there as an editorial reference; the rendered introduction comes from the structured guide. Published guides use `sample: false`. Do not present quoted asking rents as transaction prices, invent current vacancies or infer property eligibility from a tourism source. Date any numerical price comparisons and identify their evidence and scope.
+
+The production build verifies all 13 places, eight unique sections per place, at least 180 substantive words per dropdown, at least 2,500 guide words in total excluding headings and source lists, and source links in every section. It rejects leftover framework text. Native HTML details elements keep dropdowns keyboard accessible without JavaScript.
+
+Related articles/videos use their `location` field. The city-page layout also links nearby published interviews for the relevant wider region; Samobor belongs with Zagreb and Continental Croatia in that editorial grouping.
 
 ## Add an interview
 
@@ -184,7 +188,7 @@ GitHub Pages `robots.txt` for this project lives under the project path. Crawler
 ## Before a real editorial launch
 
 - Continue reviewing the expanded article library and update dated claims as sources change. The former news and interview samples are now evergreen explainers, not invented reports or interviews.
-- Complete local reporting for the 13 city/region frameworks.
+- Keep the 13 city/region guides current and supplement them with local reporting.
 - Verify playback and embedding permissions for each newly approved video; Carl’s introduction is already published.
 - Interview actual participants and obtain portrait, recording and quotation permissions.
 - Connect and test form/newsletter providers if wanted; finish the privacy notice first.

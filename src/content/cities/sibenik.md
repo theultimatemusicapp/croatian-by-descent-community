@@ -1,13 +1,9 @@
 ---
 name: 'Šibenik'
 slug: sibenik
-description: "A starting framework for researching everyday life in \u0160ibenik."
-updatedDate: '2026-09-10'
-sample: true
+description: 'A practical guide to living in Šibenik: local housing, transport, work, nature and everyday trade-offs.'
+updatedDate: '2026-09-14'
+sample: false
 ---
 
-## Your Šibenik research notebook
-
-Use the sections below to compare what matters to your household. Add verified local reporting to this Markdown file as it becomes available.
-
-This is a sample framework, not a finished local guide. No current prices, work opportunities or personal experiences have been invented.
+This guide concerns Šibenik as a place to live, with nearby beaches and outings identified separately. It does not treat the whole Šibenik-Knin County coastline or its islands as one neighbourhood. The historic centre, a street nearer everyday services and a home requiring a drive into town can suit quite different households. Explore the eight topics through your own work, mobility and housing needs. Prices are approached through actual offers and household comparisons rather than an invented citywide rental survey.

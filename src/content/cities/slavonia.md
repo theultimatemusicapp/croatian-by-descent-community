@@ -1,13 +1,9 @@
 ---
 name: 'Slavonia'
 slug: slavonia
-description: 'A starting framework for researching everyday life in Slavonia.'
-updatedDate: '2026-09-10'
-sample: true
+description: 'A practical guide to living in Slavonia: local housing, transport, work, nature and everyday trade-offs.'
+updatedDate: '2026-09-14'
+sample: false
 ---
 
-## Your Slavonia research notebook
-
-Use the sections below to compare what matters to your household. Add verified local reporting to this Markdown file as it becomes available.
-
-This is a sample framework, not a finished local guide. No current prices, work opportunities or personal experiences have been invented.
+Slavonia is a regional guide, not a synonym for all continental Croatia. The focus is on places such as Osijek, Slavonski Brod, Požega and Đakovo and their surrounding settlements. Nearby Baranja and the Croatian Danube region are often promoted alongside Slavonia, but they should retain their own names and geography when you plan a visit or home search. This page does not treat Zagreb or the whole Croatian interior as part of one local housing market. Choose a particular town or village before using the eight topics to assess costs, work and daily life.

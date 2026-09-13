@@ -1,13 +1,11 @@
 ---
 name: 'Zagreb'
 slug: zagreb
-description: 'A starting framework for researching everyday life in Zagreb.'
-updatedDate: '2026-09-10'
-sample: true
+description: 'A practical guide to living in Zagreb: local housing, transport, work, nature and everyday trade-offs.'
+updatedDate: '2026-09-14'
+sample: false
 ---
 
-## Your Zagreb research notebook
+Zagreb offers an urban version of living in Croatia: your useful comparison is between neighbourhood routines, not between a postcard centre and the coast. Start with your actual work address, the journeys your household needs, and the kind of home you can maintain. A central apartment, a home around Maksimir, and an address south of the Sava can produce different daily lives even when the city name remains the same.
 
-Use the sections below to compare what matters to your household. Add verified local reporting to this Markdown file as it becomes available.
-
-This is a sample framework, not a finished local guide. No current prices, work opportunities or personal experiences have been invented.
+This guide uses Zagreb's official district information, transport operators, and local institutions to identify practical starting points. It is not a live rental or property price survey. Treat the named areas as places to investigate rather than neighbourhood rankings, and check the exact street and building before making a commitment. For diaspora households, proximity to an office, school, or recurring activity may be more useful than proximity to the place relatives usually visit.
