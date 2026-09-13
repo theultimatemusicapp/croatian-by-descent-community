@@ -1,75 +1,160 @@
 ---
 import Base from '../layouts/Base.astro';
+import Video from '../components/Video.astro';
 import { href, channels } from '../data/site';
+const profileUrl = new URL(href('about/'), Astro.site).href;
+const description =
+  'Meet Carl Tomich, Australian filmmaker, musician and traveller exploring his Korčula family roots and Croatian citizenship by descent journey.';
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': profileUrl + '#profile',
+    url: profileUrl,
+    name: 'About Carl Tomich',
+    mainEntity: {
+      '@type': 'Person',
+      '@id': profileUrl + '#carl-tomich',
+      name: 'Carl Tomich',
+      url: profileUrl,
+      description,
+      jobTitle: ['Documentary filmmaker', 'Musician', 'Travel creator'],
+      sameAs: [
+        'https://carltravels.com/about.html',
+        'https://www.youtube.com/@thecarltomich',
+      ],
+      subjectOf: [
+        {
+          '@type': 'Article',
+          name: 'Busking for Berlin: On the Streets for a Living',
+          url: 'https://xpressmag.com.au/busking-for-berlin-on-the-streets-for-a-living/',
+        },
+      ],
+    },
+  },
+];
 ---
 
-<Base title="About Carl & the community">
+<Base
+  title="About Carl Tomich: My Croatian Roots, Music & Travel"
+  description={description}
+  schema={schema}
+>
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href={href()}>Home</a> / About
+    <a href={href()}>Home</a> / About Carl Tomich
   </nav>
   <article class="article-wrap" style="margin-top:40px;margin-bottom:55px">
-    <span class="eyebrow">The story behind the community</span>
-    <h1>
-      Australian beginnings.
-      <br />
-      Croatian roots.
-    </h1>
+    <span class="eyebrow">The person behind Croatian By Descent Community</span>
+    <h1>Carl Tomich: a guitar, a camera and a Croatian connection</h1>
     <p style="font-size:21px">
-      Croatian By Descent Community is created by Carl Tomich, an
-      Australian-born creator with Croatian heritage who recently became a
-      Croatian citizen.
+      I’m Carl Tomich, an Australian-born documentary filmmaker, musician and
+      traveller with family roots on the Croatian island of Korčula. I created
+      Croatian By Descent Community to share my citizenship journey and explore
+      what that connection means beyond the paperwork.
     </p>
-    <figure class="article-image">
-      <img
-        src={href('images/coast.webp')}
-        alt="Rooftops of Zadar overlooking the Adriatic Sea"
-        width="1440"
-        height="960"
-      />
-      <figcaption>
-        Zadar, Croatia. <a href={href('image-credits/')}>Image credits</a>.
-      </figcaption>
-    </figure>
     <div class="prose">
-      <h2>A personal journey, a shared resource</h2>
+      <h2>From Perth to the streets of Berlin</h2>
       <p>
-        Carl is documenting life, ancestry, relocation and his experiences in
-        Croatia. This platform brings those interests together in a space for
-        useful information and human stories.
+        My path here took a few detours. I grew up in Perth, spent time in
+        Melbourne and built a creative life around music and film. In Melbourne,
+        I made videos for bands. Watching friends busk helped spark the idea for
+        a documentary that would take me to Berlin.
       </p>
       <p>
-        The aim is to help people explore their connection to Croatia, whether
-        they are planning a move, researching family history, considering
-        citizenship by descent or simply curious about everyday life.
+        There, I picked up a guitar and became part of the street-music world I
+        was filming. That experience became <em>Busking for Berlin</em>: a film
+        about performers, making a living and the everyday reality behind
+        playing music on the street. My later documentary, <em>Busk Life</em>,
+        returned to that world with the perspective of time.
       </p>
-      <h2>Room for the full picture</h2>
       <p>
-        We want the good experiences and the difficult ones to have a place
-        here. Personal stories will be clearly distinguished from professional
-        advice and official information. The library includes detailed practical
-        guides to Croatia’s cities and regions, with links to official sources
-        and local services.
+        For more about that chapter, read my{' '}
+        <a href="https://xpressmag.com.au/busking-for-berlin-on-the-streets-for-a-living/">
+          2015 interview with X-Press Magazine
+        </a>{' '}
+        and explore my{' '}
+        <a href="https://carltravels.com/about.html">
+          filmmaking biography and selected work on Carl Travels
+        </a>
+        .
       </p>
-      <h2>Explore Carl’s work</h2>
+      <h2>The journey that led back to Korčula</h2>
+      <p>
+        Croatia brought a different kind of story into focus: my own family’s.
+        My grandfather’s family came from Korčula. In Croatian records he was
+        Jakov Anton Tomić; in Australia he was known as James Tomich. Connecting
+        those names became part of connecting my Australian life to my Croatian
+        ancestry.
+      </p>
+      <p>
+        I began looking more seriously into that history while I was in
+        Australia during the pandemic. Exploring my roots became an application
+        for Croatian citizenship by descent, and the application became a
+        years-long exercise in patience. I gathered documents across countries,
+        worked through discrepancies in family records and faced an eight-month
+        delay after arriving at an appointment without a required form.
+      </p>
+      <p>
+        When the approval finally came, I travelled to Croatia. In my September
+        2026 introduction video, I described that moment while further document
+        administration was still ahead. After spending years travelling and
+        filming other places, I was exploring a country that was also part of my
+        family’s story.
+      </p>
+      <p>
+        <a href={href('articles/welcome-to-the-community/')}>
+          Read my full Croatian citizenship story
+        </a>
+        , including the obstacles, the wait and the approval.
+      </p>
+      <h2>Watch my introduction</h2>
+    </div>
+    <Video
+      url="https://www.youtube.com/watch?v=P5V_lPwUigw"
+      title="Carl Tomich: my Croatian citizenship by descent story"
+    />
+    <div class="prose">
+      <h2>Why I created Croatian By Descent Community</h2>
+      <p>
+        This community brings my Croatian connection together with the music,
+        travel and documentary work that came before it. I want it to be a place
+        for the human side of ancestry: the families behind the documents, the
+        experience of arriving somewhere new and the question of where we feel
+        at home.
+      </p>
+      <p>
+        Here you’ll find personal citizenship stories, conversations with people
+        building lives in Croatia, and practical guides to its cities and
+        regions. My experience is one contribution to a much wider Croatian
+        diaspora story. There is room for people who are just starting to
+        research their heritage, people planning a move and people who already
+        call Croatia home.
+      </p>
+      <p>
+        I write about my application from personal experience. Our practical
+        guides link to official sources, and the{' '}
+        <a href={href('editorial-policy/')}>editorial policy</a> explains how we
+        handle sourcing and corrections. Croatian By Descent Community is the
+        community website I created;{' '}
+        <a href="https://croatianbydescent.com/">Croatian By Descent</a> is our
+        partner website.
+      </p>
+      <h2>Follow my films, travels and Croatian chapter</h2>
       <ul>
         <li>
-          <a href="https://carltravels.com/">Carl Travels</a>
+          <a href="https://carltravels.com/">Carl Travels</a> — my wider travel
+          and filmmaking work.
         </li>
         {channels.map((c) => (
           <li>
-            <a href={c.url}>{c.name} on YouTube</a>
+            <a href={c.url}>{c.name} on YouTube</a> — {c.detail}.
           </li>
         ))}
-        <li>
-          <a href="https://croatianbydescent.com/">Croatian By Descent</a> — our
-          partner website
-        </li>
       </ul>
-      <h2>Have a Croatian chapter to share?</h2>
       <p>
-        We welcome proposals for diaspora stories, returnee conversations and
-        practical local perspectives.{' '}
-        <a href={href('contact/')}>Contact & community submissions</a>.
+        For an interview, a film collaboration, a correction or a Croatian story
+        you would like to share,{' '}
+        <a href={href('contact/')}>get in touch with me and the community</a>.
       </p>
     </div>
   </article>

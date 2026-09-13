@@ -40,6 +40,12 @@ const schema: Record<string, unknown>[] = [
     author: {
       '@type': d.author.includes('editorial team') ? 'Organization' : 'Person',
       name: d.author,
+      ...(d.author === 'Carl Tomich'
+        ? {
+            '@id': new URL(href('about/'), Astro.site).href + '#carl-tomich',
+            url: new URL(href('about/'), Astro.site).href,
+          }
+        : {}),
     },
     publisher: {
       '@type': 'Organization',
@@ -96,7 +102,13 @@ if (embedded)
     <h1>{d.title}</h1>
     <p style="font-size:20px;color:var(--muted)">{d.description}</p>
     <div class="meta">
-      By {d.author} · Published{' '}
+      By{' '}
+      {d.author === 'Carl Tomich' ? (
+        <a href={href('about/')}>{d.author}</a>
+      ) : (
+        d.author
+      )}{' '}
+      · Published{' '}
       <time datetime={d.publishedDate.toISOString()}>
         {dateLabel(d.publishedDate)}
       </time>
