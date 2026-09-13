@@ -34,23 +34,23 @@
       },
       {
         "category": "utilities",
-        "label": "Utilities · 45 m² studio · 1 person",
-        "amount": "€124",
-        "period": "per month",
-        "scope": "Zagreb crowdsourced estimate, updated 13 September 2026",
-        "note": "Expatistan's heating, electricity, gas and related utilities category. Page-wide sample: 87 prices from 10 contributors; not a sample count for this individual item or an actual bill.",
-        "url": "https://www.expatistan.com/cost-of-living/zagreb",
-        "source": "Expatistan · Zagreb cost of living"
+        "label": "Basic utilities · 85 m² apartment",
+        "amount": "€189.94",
+        "period": "per month; last updated 10 June 2026",
+        "scope": "Zagreb; electricity, heating, cooling, water and garbage",
+        "note": "Numbeo city estimate with a published range of €150–€246.54. Numbeo reports 1,253 entries from 186 contributors in the previous 12 months for the city dataset; this is not a guaranteed bill for a particular building.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Zagreb",
+        "source": "Numbeo · Zagreb cost of living"
       },
       {
         "category": "utilities",
-        "label": "Utilities · 85 m² apartment · 2 people",
-        "amount": "€229",
-        "period": "per month",
-        "scope": "Zagreb crowdsourced estimate, updated 13 September 2026",
-        "note": "Publisher estimate for heating, electricity, gas and related utilities. Page-wide sample: 87 prices from 10 contributors; actual building and seasonal bills differ.",
-        "url": "https://www.expatistan.com/cost-of-living/zagreb",
-        "source": "Expatistan · Zagreb cost of living"
+        "label": "Broadband internet · 60 Mbps+",
+        "amount": "€35.26",
+        "period": "per month; last updated 10 June 2026",
+        "scope": "Zagreb; unlimited data",
+        "note": "Numbeo city estimate with a published range of €20–€45. This is a service-price estimate, separate from household utilities.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Zagreb",
+        "source": "Numbeo · Zagreb cost of living"
       }
     ]
   },
@@ -89,13 +89,13 @@
       },
       {
         "category": "utilities",
-        "label": "Water services · fixed tariff component",
-        "amount": "€6.55",
-        "period": "per month, plus consumption and applicable charges",
-        "scope": "Official Rijeka tariff effective 1 July 2026",
-        "note": "City of Rijeka announcement dated 25 June 2026: fixed water-services component including VAT. This is not a complete water bill or total utilities budget; variable consumption and applicable water charges are additional.",
-        "url": "https://www.rijeka.hr/1-srpnja-2026-stupa-na-snagu-zakonsko-uskladivanje-cijena-vodnih-usluga/",
-        "source": "City of Rijeka · 2026 water tariff announcement"
+        "label": "Basic utilities · 85 m² apartment",
+        "amount": "€168.45",
+        "period": "per month; last updated 4 May 2026",
+        "scope": "Rijeka; electricity, heating, cooling, water and garbage",
+        "note": "Numbeo city estimate with a published range of €117.69–€200. Numbeo reports 314 entries from 23 contributors in the previous 12 months; this is not a guaranteed bill for a particular building.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Rijeka",
+        "source": "Numbeo · Rijeka cost of living"
       }
     ]
   },
@@ -134,13 +134,13 @@
       },
       {
         "category": "utilities",
-        "label": "Advertised fixed utilities · Volosko · 69.35 m²",
-        "amount": "€300",
-        "period": "per month",
-        "scope": "One Opatija rental's advertised charge; updated 13 August 2026",
-        "note": "Fixed monthly utilities quoted by advertiser for the two-bedroom apartment with shared pool and gym. Itemised coverage and occupancy not specified. This is a property-specific charge, not a measured bill or regional average. Checked 14 September 2026.",
-        "url": "https://www.nekretnine.hr/oglasi/3778553/",
-        "source": "Everis agency advertisement · E4109"
+        "label": "Basic utilities · Rijeka example within Kvarner · 85 m²",
+        "amount": "€168.45",
+        "period": "per month; last updated 4 May 2026",
+        "scope": "Named Rijeka city example, not a Kvarner regional average; electricity, heating, cooling, water and garbage",
+        "note": "Numbeo city estimate with a published range of €117.69–€200. Numbeo reports 314 entries from 23 contributors in the previous 12 months; this is not a guaranteed bill for a particular building.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Rijeka",
+        "source": "Numbeo · Rijeka cost of living"
       }
     ]
   },
