@@ -22,7 +22,7 @@ const introductionSchema = introduction
   : [];
 const all = await publishedArticles();
 const latest = all
-  .filter((a) => !['news', 'interview', 'video'].includes(a.data.type))
+  .filter((a) => !['news', 'video'].includes(a.data.type))
   .slice(0, 3);
 import Newsletter from '../components/Newsletter.astro';
 import { href, channels, places, slugify } from '../data/site';
@@ -61,7 +61,7 @@ import { href, channels, places, slugify } from '../data/site';
           little Croatia in their life.
         </p>
         <a class="text-link" href={href('articles/welcome-to-the-community/')}>
-          Meet Croatian By Descent <span aria-hidden="true">↗</span>
+          Meet Croatian By Descent Community <span aria-hidden="true">↗</span>
         </a>
       </div>
     </article>
@@ -284,16 +284,13 @@ import { href, channels, places, slugify } from '../data/site';
     <div class="two-column">
       <div>
         <span class="eyebrow">Featured interviews</span>
-        <h2 style="margin-bottom:18px">
-          Every journey has a person behind it.
-        </h2>
+        <h2 style="margin-bottom:18px">Julia: from Melbourne to Croatia</h2>
         <p>
-          Did your family leave Croatia? Have you moved back, restored a family
-          home or found relatives in a village you had only heard about? We’d
-          love to hear your story.
+          Born in Zagreb and raised in Melbourne, Julia reflects on returning to
+          family, navigating citizenship and finding a new direction in Samobor.
         </p>
-        <a class="button" href={href('contact/?type=Interview%20request')}>
-          Share your Croatian chapter ↗
+        <a class="button" href={href('articles/julia-melbourne-to-croatia/')}>
+          Read Julia’s story ↗
         </a>{' '}
         <a class="text-link" href={href('interviews/')}>
           Explore interviews

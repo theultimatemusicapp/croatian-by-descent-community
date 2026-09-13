@@ -1,4 +1,4 @@
-export const brand = 'Croatian By Descent';
+export const brand = 'Croatian By Descent Community';
 export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const href = (path = '') => `${base}/${path.replace(/^\//, '')}`;
 export const channels = [

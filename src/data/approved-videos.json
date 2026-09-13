@@ -13,5 +13,17 @@
       "welcome-to-the-community",
       "croatian-citizenship-by-descent"
     ]
+  },
+  {
+    "slug": "julia-melbourne-to-croatia",
+    "title": "From Melbourne to Croatia, Family, Citizenship and Starting Again",
+    "youtubeUrl": "https://www.youtube.com/watch?v=v6TC__-xmPc",
+    "description": "Julia shares her journey from a childhood in Melbourne to life in Samobor, discussing family, Croatian citizenship, changing work plans and rebuilding her life. Includes discussion of domestic abuse and bereavement.",
+    "channel": "Croatian By Descent Community",
+    "date": "2026-09-13",
+    "category": "Interviews",
+    "location": "Samobor",
+    "approved": true,
+    "relatedArticles": ["julia-melbourne-to-croatia", "moving-to-croatia"]
   }
 ]

@@ -28,7 +28,10 @@ const schema = z.object({
   approved: z.literal(true),
   relatedArticles: z.array(z.string()).default([]),
 });
-export const videos = z.array(schema).parse(raw);
+export const videos = z
+  .array(schema)
+  .parse(raw)
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 for (const video of videos) youtubeId(video.youtubeUrl);
 if (new Set(videos.map((v) => v.slug)).size !== videos.length)
   throw new Error('Duplicate video slug');

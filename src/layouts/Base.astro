@@ -58,7 +58,7 @@ const analyticsDomain = import.meta.env.PUBLIC_ANALYTICS_DOMAIN;
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Croatian By Descent RSS"
+      title={`${brand} RSS`}
       href={href('rss.xml')}
     />
     {import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
@@ -96,7 +96,7 @@ const analyticsDomain = import.meta.env.PUBLIC_ANALYTICS_DOMAIN;
     <header class="wrap">
       <div class="masthead">
         <a class="brand" href={href()}>
-          Croatian By Descent
+          {brand}
           <span>Roots in Croatia. Stories without borders.</span>
         </a>
         <div class="mast-right">
@@ -157,7 +157,7 @@ const analyticsDomain = import.meta.env.PUBLIC_ANALYTICS_DOMAIN;
         <div class="footer-top">
           <div>
             <a class="brand" href={href()}>
-              Croatian By Descent
+              {brand}
             </a>
             <p>
               A place for the curious, the connected and those finding their way
