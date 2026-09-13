@@ -1,12 +1,16 @@
 ---
 import type { CostRow } from '../data/cost-evidence';
+import { numbeoRents } from '../data/numbeo-rents';
 interface Props {
   rows: CostRow[];
   place: string;
   category: 'rent' | 'utilities';
 }
 const { rows, place, category } = Astro.props;
-const selected = rows.filter((r) => r.category === category);
+const selected = rows.filter(
+  (r) => r.category === category && category === 'utilities',
+);
+const numbeo = category === 'rent' ? numbeoRents[place] : undefined;
 ---
 
 <section
@@ -15,14 +19,70 @@ const selected = rows.filter((r) => r.category === category);
 >
   <h3>
     {category === 'rent'
-      ? 'Verified advertised rents'
-      : 'Published household bill figures'}
+      ? 'Numbeo rental benchmarks'
+      : 'Numbeo household bill figures'}
   </h3>
   <p class="form-note">
     Sources checked 14 September 2026. Each row gives its own observation period
     and conditions.
   </p>
-  {selected.length ? (
+  {numbeo ? (
+    <div
+      class="cost-table-scroll"
+      tabindex="0"
+      role="region"
+      aria-label={`${place} Numbeo rental table`}
+    >
+      <table class="cost-table">
+        <caption>
+          {place} — Numbeo city estimates (asking-rent survey categories)
+          {place === 'Zadar' ? ' · Drage has no separate Numbeo dataset' : ''}
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Numbeo category</th>
+            <th scope="col">Monthly estimate</th>
+            <th scope="col">Area</th>
+            <th scope="col">Source details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1-bedroom apartment</th>
+            <td>
+              <strong>{numbeo.oneCentre}</strong>
+            </td>
+            <td>City centre</td>
+            <td rowspan="4">
+              Last updated {numbeo.updated}; {numbeo.contributors}.{' '}
+              <a href={numbeo.url}>Numbeo {place} ↗</a>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">1-bedroom apartment</th>
+            <td>
+              <strong>{numbeo.oneOutside}</strong>
+            </td>
+            <td>Outside city centre</td>
+          </tr>
+          <tr>
+            <th scope="row">3-bedroom apartment</th>
+            <td>
+              <strong>{numbeo.threeCentre}</strong>
+            </td>
+            <td>City centre</td>
+          </tr>
+          <tr>
+            <th scope="row">3-bedroom apartment</th>
+            <td>
+              <strong>{numbeo.threeOutside}</strong>
+            </td>
+            <td>Outside city centre</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  ) : selected.length ? (
     <div
       class="cost-table-scroll"
       tabindex="0"
@@ -64,13 +124,14 @@ const selected = rows.filter((r) => r.category === category);
     </div>
   ) : (
     <p>
-      No current local household-bill figure meeting our sourcing criteria was
-      verified for this guide. We have not substituted another city’s average.
+      Numbeo does not publish a separate city dataset for {place}. We have not
+      substituted another city’s average or presented a nearby village as if it
+      had its own Numbeo data.
     </p>
   )}
   <p class="form-note">
     {category === 'rent'
-      ? 'Individual listings are examples, not bedroom-type averages. Lease dates matter: a winter-only monthly price does not establish a year-round rent. Regional guides identify the town each example belongs to.'
+      ? `Numbeo publishes one-bedroom and three-bedroom categories; it does not publish studio or two-bedroom averages in these pages. These are crowdsourced benchmarks, not signed leases. Regional guides identify the town represented by each benchmark.${place === 'Zadar' ? ' Drage has no separate Numbeo page, so the Zadar benchmark must not be treated as a Drage price.' : ''}`
       : 'Crowdsourced figures describe the publisher’s reported sample; they are not official household expenditure statistics. A supplier tariff is a unit price, not a complete monthly bill.'}
   </p>
 </section>

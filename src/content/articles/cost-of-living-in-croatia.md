@@ -27,17 +27,19 @@ The city and region guides now put sourced prices at the top of their **Rental p
 
 ### Published rental-market figures
 
-Njuškalo’s report, published 4 September 2026, covers active long-term apartment advertisements. These are asking-price averages, not signed rents. Sizes and bedroom counts are mixed.
+Numbeo’s city pages publish comparable rental categories. These are crowdsourced estimates, not signed rents. Numbeo publishes one-bedroom and three-bedroom categories; it does not publish a studio or two-bedroom average in these pages.
 
-| City     | Monthly asking average | Observation period |
-| -------- | ---------------------: | ------------------ |
-| Zagreb   |                   €963 | July 2026          |
-| Split    |                 €1,055 | July 2026          |
-| Zadar    |                   €894 | July 2026          |
-| Osijek   |                   €559 | July 2026          |
-| Varaždin |             About €650 | January–July 2026  |
+| City      | 1-bedroom centre | 1-bedroom outside | 3-bedroom centre | 3-bedroom outside | Last updated |
+| --------- | ---------------: | ----------------: | ---------------: | ----------------: | ------------ |
+| Zagreb    |          €768.75 |           €576.25 |        €1,253.85 |           €936.54 | 10 Jun 2026  |
+| Split     |          €899.33 |           €639.67 |        €1,786.67 |         €1,161.50 | 3 Jun 2026   |
+| Zadar     |          €796.40 |           €614.40 |        €1,283.33 |         €1,022.67 | 20 May 2026  |
+| Rijeka    |          €621.00 |           €477.25 |        €1,060.00 |           €781.67 | 4 May 2026   |
+| Dubrovnik |        €1,310.00 |           €821.00 |        €1,787.50 |         €1,092.50 | 4 May 2026   |
+| Pula      |          €637.50 |           €480.00 |        €1,162.50 |           €871.50 | 19 Jun 2026  |
+| Osijek    |          €573.88 |           €365.50 |        €1,062.22 |           €736.44 | 4 Jun 2026   |
 
-[Source: Njuškalo’s rental-market analysis and methodology](https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima).
+[Sources: [Numbeo Zagreb](https://www.numbeo.com/cost-of-living/in/Zagreb), [Numbeo Split](https://www.numbeo.com/cost-of-living/in/Split), [Numbeo Zadar](https://www.numbeo.com/cost-of-living/in/Zadar), [Numbeo Rijeka](https://www.numbeo.com/cost-of-living/in/Rijeka), [Numbeo Dubrovnik](https://www.numbeo.com/cost-of-living/in/Dubrovnik), [Numbeo Pula](https://www.numbeo.com/cost-of-living/in/Pula), [Numbeo Osijek](https://www.numbeo.com/cost-of-living/in/Osijek).]
 
 ### Studio, one-bedroom and two-bedroom examples
 
