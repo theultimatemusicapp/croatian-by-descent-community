@@ -1052,3 +1052,47 @@ p {
 .city-topic .city-topic-sources li {
   margin: 6px 0;
 }
+
+.cost-evidence {
+  margin: 20px 0 28px;
+}
+.cost-table-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.cost-table-scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cost-table {
+  width: 100%;
+  min-width: 610px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.cost-table caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.cost-table th,
+.cost-table td {
+  padding: 12px;
+  border-bottom: 1px solid #d8dfe0;
+  text-align: left;
+  vertical-align: top;
+}
+.cost-table thead {
+  background: #eef3f2;
+}
+.cost-table td p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+.cost-table td:nth-child(2) {
+  min-width: 115px;
+}
+.cost-table th:first-child {
+  min-width: 110px;
+}

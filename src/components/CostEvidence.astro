@@ -1,0 +1,76 @@
+---
+import type { CostRow } from '../data/cost-evidence';
+interface Props {
+  rows: CostRow[];
+  place: string;
+  category: 'rent' | 'utilities';
+}
+const { rows, place, category } = Astro.props;
+const selected = rows.filter((r) => r.category === category);
+---
+
+<section
+  class="cost-evidence"
+  aria-label={`${place}: sourced ${category} prices`}
+>
+  <h3>
+    {category === 'rent'
+      ? 'Verified advertised rents'
+      : 'Published household bill figures'}
+  </h3>
+  <p class="form-note">
+    Sources checked 14 September 2026. Each row gives its own observation period
+    and conditions.
+  </p>
+  {selected.length ? (
+    <div
+      class="cost-table-scroll"
+      tabindex="0"
+      role="region"
+      aria-label={`${place} ${category} price table`}
+    >
+      <table class="cost-table">
+        <caption>
+          {place} —{' '}
+          {category === 'rent'
+            ? 'asking prices, not agreed rents'
+            : 'reported amounts, not a guaranteed bill'}
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Home or service</th>
+            <th scope="col">Published price</th>
+            <th scope="col">Location and basis</th>
+            <th scope="col">Date, conditions and source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {selected.map((r) => (
+            <tr>
+              <th scope="row">{r.label}</th>
+              <td>
+                <strong>{r.amount}</strong>
+              </td>
+              <td>{r.scope}</td>
+              <td>
+                <span>{r.period}</span>
+                <p>{r.note}</p>
+                <a href={r.url}>{r.source} ↗</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p>
+      No current local household-bill figure meeting our sourcing criteria was
+      verified for this guide. We have not substituted another city’s average.
+    </p>
+  )}
+  <p class="form-note">
+    {category === 'rent'
+      ? 'Individual listings are examples, not bedroom-type averages. Lease dates matter: a winter-only monthly price does not establish a year-round rent. Regional guides identify the town each example belongs to.'
+      : 'Crowdsourced figures describe the publisher’s reported sample; they are not official household expenditure statistics. A supplier tariff is a unit price, not a complete monthly bill.'}
+  </p>
+</section>

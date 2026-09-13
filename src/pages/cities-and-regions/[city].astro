@@ -1,4 +1,6 @@
 ---
+import CostEvidence from '../../components/CostEvidence.astro';
+import { costEvidence } from '../../data/cost-evidence';
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { cityGuides } from '../../data/city-guides';
@@ -34,6 +36,7 @@ const localInterviews = (await publishedArticles()).filter(
       regionalLocations[name]?.includes(a.data.location || '')),
 );
 const topics = guide.topics;
+const prices = costEvidence.find((g) => g.slug === guide.slug)!;
 const photo =
   name === 'Zadar'
     ? 'coast'
@@ -108,6 +111,15 @@ const photo =
           <details class="check-details city-topic" id={slugify(topic.title)}>
             <summary>{topic.title}</summary>
             <div class="prose city-topic-body">
+              {['Cost of living', 'Rental prices'].includes(topic.title) && (
+                <CostEvidence
+                  rows={prices.rows}
+                  place={name}
+                  category={
+                    topic.title === 'Rental prices' ? 'rent' : 'utilities'
+                  }
+                />
+              )}
               {topic.paragraphs.map((paragraph) => (
                 <p>{paragraph}</p>
               ))}

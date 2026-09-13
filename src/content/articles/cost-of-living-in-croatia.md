@@ -1,7 +1,7 @@
 ---
 title: 'Cost of living in Croatia'
 slug: 'cost-of-living-in-croatia'
-description: 'Build your own dated budget for housing, transport, food and the less obvious costs of relocation.'
+description: 'Verified 2026 Croatian rent figures, apartment listings and household utility costs, with source dates, locations and clear distinctions between asking prices and averages.'
 category: 'moving-to-croatia'
 type: 'guide'
 tags: []
@@ -14,16 +14,64 @@ draft: false
 sample: false
 sensitive: true
 relatedSlugs: ['moving-to-croatia', 'cost-of-living-in-croatia']
-updatedDate: '2026-09-10'
-reviewedDate: '2026-09-10'
+updatedDate: '2026-09-14'
+reviewedDate: '2026-09-14'
 officialSources:
   - label: 'Croatian Bureau of Statistics: consumer price index tables'
     url: 'https://web.dzs.hr/PxWeb/pxweb/en/Cijene/Cijene/?rxid=6cfe'
 ---
 
-A useful cost of living estimate answers a household question: what will it cost us to maintain the life we actually intend to lead in this particular place? It does not begin with a national figure and hope that your rent, working pattern, family responsibilities, and habits happen to fit underneath it. For a newcomer, the largest uncertainty is often the set of assumptions behind the number rather than the arithmetic itself.
+## Actual prices: checked 14 September 2026
 
-This guide helps you build a dated budget from evidence you can inspect. It deliberately avoids presenting a supposedly universal monthly total for Croatia. Such a total could hide the difference between a temporary stay and a lasting home, a single adult and a family, or access to existing household resources and starting from nothing. The objective is a budget you can update and use to make decisions, including a decision to delay the move if the current arrangement does not work.
+The city and region guides now put sourced prices at the top of their **Rental prices** and **Cost of living** dropdowns. Individual apartments show their advertised price, location, size and rental conditions. Published averages retain the source’s period and definition. A listing is evidence of what an advertiser asks; it is not evidence of a completed lease or a typical price for all homes with that number of bedrooms.
+
+### Published rental-market figures
+
+Njuškalo’s report, published 4 September 2026, covers active long-term apartment advertisements. These are asking-price averages, not signed rents. Sizes and bedroom counts are mixed.
+
+| City     | Monthly asking average | Observation period |
+| -------- | ---------------------: | ------------------ |
+| Zagreb   |                   €963 | July 2026          |
+| Split    |                 €1,055 | July 2026          |
+| Zadar    |                   €894 | July 2026          |
+| Osijek   |                   €559 | July 2026          |
+| Varaždin |             About €650 | January–July 2026  |
+
+[Source: Njuškalo’s rental-market analysis and methodology](https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima).
+
+### Studio, one-bedroom and two-bedroom examples
+
+Open a location’s **Rental prices** section for the verified examples available in that market. We identify separate bedrooms from the description rather than translating Croatian room counts directly into bedrooms. A listing described as two rooms can include a living room and only one bedroom. The source and tenancy conditions remain alongside each figure; seasonal offers are labelled with their dates.
+
+- [Zagreb](../../cities-and-regions/zagreb/#rental-prices)
+- [Split](../../cities-and-regions/split/#rental-prices)
+- [Zadar](../../cities-and-regions/zadar/#rental-prices)
+- [Rijeka](../../cities-and-regions/rijeka/#rental-prices)
+- [Dubrovnik](../../cities-and-regions/dubrovnik/#rental-prices)
+- [Trogir](../../cities-and-regions/trogir/#rental-prices)
+- [Šibenik](../../cities-and-regions/sibenik/#rental-prices)
+- [Korčula](../../cities-and-regions/korcula/#rental-prices)
+- [Istria](../../cities-and-regions/istria/#rental-prices)
+- [Dalmatia](../../cities-and-regions/dalmatia/#rental-prices)
+- [Kvarner](../../cities-and-regions/kvarner/#rental-prices)
+- [Slavonia](../../cities-and-regions/slavonia/#rental-prices)
+- [Continental Croatia](../../cities-and-regions/continental-croatia/#rental-prices)
+
+Regional examples name the actual town. We do not present a flat in Pula as an Istrian regional average or a flat in Osijek as the price of all Slavonia. Where a layout or a reliable local bill figure could not be verified, the gap remains explicit.
+
+### Monthly utilities: reported figures with a household definition
+
+For Zagreb, Expatistan reports **€124 per month** for utilities for one person in a 45 m² studio, and **€229 per month** for two people in an 85 m² flat. Its utility category covers heating, electricity, gas and related bills; internet appears separately. These are crowdsourced figures, not official expenditure statistics. The page was updated 13 September 2026 and lists 87 price entries from 10 contributors across the whole city page, not a utility-specific sample. [Source: Expatistan Zagreb](https://www.expatistan.com/cost-of-living/zagreb-croatia).
+
+The local **Cost of living** dropdowns provide other verified bill figures, with the property size, observation date and source limitations. We have not converted an electricity rate per kilowatt-hour into a supposed average monthly household bill. HEP Elektra’s current household pricing notice covers **1 April–30 September 2026**; it separately identifies network charges and the renewable-energy levy. That period should not be silently extended into the winter. [Source: HEP Elektra household tariffs](https://www.hep.hr/elektra/glavni-izbornik/kucanstvo/tarifne-stavke-cijene/1547).
+
+### One verified transport cost
+
+ZET lists the general monthly pass for Zagreb at **€47.78**, or **€53.09** for the combined ZET–HŽ general monthly pass. These are published products, not estimates of what every resident spends on transport. Checked 14 September 2026. [Source: ZET fares](https://www.zet.hr/cijene-prodaja-i-placanje/50).
+
+## Using the figures for your own household
+
+The prices above are evidence with defined limits. The planning notes below explain how to combine an actual rental offer with bills and the services your household needs. They are budgeting guidance, not an additional price survey. A useful comparison preserves the location, household size, dates and inclusions attached to every number. Without those details, an attractive monthly total can hide a seasonal lease, excluded bills or a home that does not meet your requirements.
 
 ## Define the household being priced
 

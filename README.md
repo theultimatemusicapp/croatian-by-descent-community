@@ -197,3 +197,9 @@ GitHub Pages `robots.txt` for this project lives under the project path. Crawler
 - Recheck current official links and all time-sensitive information.
 
 No current news events, personal interviews, precise prices, testimonials or popularity statistics have been fabricated. The visual/navigation reference was studied only for broad content categories; its branding, layout, wording, images, articles and code were not copied.
+
+## Dated rent and utility evidence
+
+Edit `src/data/cost-evidence.json` for the price tables inside each city's Cost of living and Rental prices dropdowns. Keep each amount alongside its source URL, observation period, location, unit, property size or household definition, and lease conditions. Individual advertised prices must not be described as bedroom-type averages. Croatian room counts are not bedroom counts: verify the layout. Regional entries must name the actual town. Crowdsourced utility figures must remain labelled, including their source date and sample limits; never convert a supplier unit tariff into an unsupported average bill.
+
+The snapshot was checked on 14 September 2026. When refreshing, update the visible check date in `CostEvidence.astro`, the relevant content review dates and each affected row's period. Refresh the main cost-of-living article's summary separately against its cited sources. Tables are static editorial snapshots and do not update automatically.

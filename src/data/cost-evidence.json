@@ -1,0 +1,405 @@
+[
+  {
+    "slug": "zagreb",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Studio · Teslina, Donji grad · 28 m²",
+        "amount": "€800",
+        "period": "per month",
+        "scope": "Individual Zagreb asking rent, checked 14 September 2026",
+        "note": "Minimum 12-month lease. Description is an open-plan studio without a separate bedroom; the site's generic bedroom field is inconsistent with its studio description. Availability requires confirmation.",
+        "url": "https://eurovilla.hr/nekretnina/zagreb-centar-studio-apartman-28-m2-s-dvoristem-na-koristenje-top-lokacija/168609/",
+        "source": "Eurovilla · listing 168609"
+      },
+      {
+        "category": "rent",
+        "label": "1 bedroom · Savica · 46 m² living area",
+        "amount": "€850",
+        "period": "per month",
+        "scope": "Individual Zagreb asking rent, checked 14 September 2026",
+        "note": "Minimum 12 months; separate bedroom confirmed in description. Garage space and storage included. Description gives 46 m² for the apartment; headline total field shows 64 m². Availability requires confirmation.",
+        "url": "https://eurovilla.hr/nekretnina/zagreb-savica-lijep-dvosoban-stan-povrsine-46-m2-s-garaznim-parkirnim-mjestom/521619/",
+        "source": "Eurovilla · listing 521619"
+      },
+      {
+        "category": "rent",
+        "label": "2 bedrooms · Žitnjak · 60 m²",
+        "amount": "€900",
+        "period": "per month",
+        "scope": "Individual Zagreb asking rent; updated 26 August 2026",
+        "note": "Two separate bedrooms confirmed in description; two parking spaces and garden. Deposit one month. Lease length and summer availability not specified. Checked 14 September 2026; availability requires confirmation.",
+        "url": "https://www.nekretnine.hr/oglasi/3889987/",
+        "source": "RE/MAX Centar agency advertisement · 3-75477"
+      },
+      {
+        "category": "utilities",
+        "label": "Utilities · 45 m² studio · 1 person",
+        "amount": "€124",
+        "period": "per month",
+        "scope": "Zagreb crowdsourced estimate, updated 13 September 2026",
+        "note": "Expatistan's heating, electricity, gas and related utilities category. Page-wide sample: 87 prices from 10 contributors; not a sample count for this individual item or an actual bill.",
+        "url": "https://www.expatistan.com/cost-of-living/zagreb",
+        "source": "Expatistan · Zagreb cost of living"
+      },
+      {
+        "category": "utilities",
+        "label": "Utilities · 85 m² apartment · 2 people",
+        "amount": "€229",
+        "period": "per month",
+        "scope": "Zagreb crowdsourced estimate, updated 13 September 2026",
+        "note": "Publisher estimate for heating, electricity, gas and related utilities. Page-wide sample: 87 prices from 10 contributors; actual building and seasonal bills differ.",
+        "url": "https://www.expatistan.com/cost-of-living/zagreb",
+        "source": "Expatistan · Zagreb cost of living"
+      }
+    ]
+  },
+  {
+    "slug": "rijeka",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Studio · Škurinje · 17 m²",
+        "amount": "€350",
+        "period": "per month",
+        "scope": "Individual Rijeka asking rent; published 3 September 2026",
+        "note": "Advertised as a studio suitable for a student, with parking. Lease duration and summer availability are not stated; do not treat this as a confirmed year-round offer. Checked 14 September 2026.",
+        "url": "https://www.njuskalo.hr/nekretnine/najam-garsonijere-skurinje-oglas-51423586",
+        "source": "Dogma agency advertisement · Njuškalo 51423586"
+      },
+      {
+        "category": "rent",
+        "label": "1 bedroom · Bulevard · 43 m²",
+        "amount": "€600",
+        "period": "per month",
+        "scope": "Individual Rijeka asking rent; updated 9 September 2026",
+        "note": "One separate bedroom confirmed in description. Exclusively long-term rental, advertised available from 1 September 2026. Exact minimum contract length not stated. Checked 14 September 2026.",
+        "url": "https://www.nekretnine.hr/oglasi/3612635/",
+        "source": "Spatium agency advertisement · listing 8374"
+      },
+      {
+        "category": "rent",
+        "label": "2 bedrooms · Belveder · 68 m²",
+        "amount": "€800",
+        "period": "per month",
+        "scope": "Individual Rijeka asking rent; updated 8 August 2026",
+        "note": "Two separate bedrooms and living room confirmed. Advertised long-term from 1 September 2026; exact minimum duration not stated. Checked 14 September 2026; availability requires confirmation.",
+        "url": "https://www.nekretnine.hr/oglasi/3723183/",
+        "source": "Omnis agency advertisement · OM-2006"
+      },
+      {
+        "category": "utilities",
+        "label": "Water services · fixed tariff component",
+        "amount": "€6.55",
+        "period": "per month, plus consumption and applicable charges",
+        "scope": "Official Rijeka tariff effective 1 July 2026",
+        "note": "City of Rijeka announcement dated 25 June 2026: fixed water-services component including VAT. This is not a complete water bill or total utilities budget; variable consumption and applicable water charges are additional.",
+        "url": "https://www.rijeka.hr/1-srpnja-2026-stupa-na-snagu-zakonsko-uskladivanje-cijena-vodnih-usluga/",
+        "source": "City of Rijeka · 2026 water tariff announcement"
+      }
+    ]
+  },
+  {
+    "slug": "kvarner",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Studio · Opatija centre · 25 m²",
+        "amount": "€700",
+        "period": "per month",
+        "scope": "Individual Opatija asking rent, not a Kvarner average; published 8 September 2026",
+        "note": "12-month contract; utilities excluded. Sleeping area is an open gallery within the studio, not an enclosed separate bedroom. Checked 14 September 2026.",
+        "url": "https://www.njuskalo.hr/nekretnine/studio-apartman-dugorocni-najam-blizina-mora-oglas-50795725",
+        "source": "Premium Real Estate agency advertisement · Njuškalo 50795725"
+      },
+      {
+        "category": "rent",
+        "label": "1 bedroom · Bulevard · 43 m²",
+        "amount": "€600",
+        "period": "per month",
+        "scope": "Rijeka city example within Kvarner, not a regional average; updated 9 September 2026",
+        "note": "One separate bedroom confirmed in description. Exclusively long-term rental, advertised available from 1 September 2026. Exact minimum contract length not stated. Checked 14 September 2026.",
+        "url": "https://www.nekretnine.hr/oglasi/3612635/",
+        "source": "Spatium agency advertisement · listing 8374"
+      },
+      {
+        "category": "rent",
+        "label": "2 bedrooms · Volosko, Opatija · 69.35 m²",
+        "amount": "€1,500",
+        "period": "per month",
+        "scope": "Individual Opatija asking rent, not a Kvarner average; updated 13 August 2026",
+        "note": "Exclusively long-term; exact minimum duration not stated. Two bedrooms confirmed. Shared pool and gym; parking. Additional fixed monthly utilities of €300 advertised. Checked 14 September 2026.",
+        "url": "https://www.nekretnine.hr/oglasi/3778553/",
+        "source": "Everis agency advertisement · E4109"
+      },
+      {
+        "category": "utilities",
+        "label": "Advertised fixed utilities · Volosko · 69.35 m²",
+        "amount": "€300",
+        "period": "per month",
+        "scope": "One Opatija rental's advertised charge; updated 13 August 2026",
+        "note": "Fixed monthly utilities quoted by advertiser for the two-bedroom apartment with shared pool and gym. Itemised coverage and occupancy not specified. This is a property-specific charge, not a measured bill or regional average. Checked 14 September 2026.",
+        "url": "https://www.nekretnine.hr/oglasi/3778553/",
+        "source": "Everis agency advertisement · E4109"
+      }
+    ]
+  },
+  {
+    "slug": "continental-croatia",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "1 bedroom · Jug II, Osijek · 41 m² apartment",
+        "amount": "€750",
+        "period": "per month",
+        "scope": "Individual Osijek asking rent, not a Continental Croatia average; checked 14 September 2026",
+        "note": "Minimum 12 months. Separate bedroom; 16 m² terrace and parking. Headline total field is 44 m²; apartment description says 41 m². Water and consumed electricity extra; internet, refuse, communal charges, reserve fund and shared-area maintenance included.",
+        "url": "https://eurovilla.hr/nekretnina/osijek-jug-2-najam-novouredenog-dvosobnog-stana-s-parkirnim-mjestom-povrsine-41-m2/921544/",
+        "source": "Eurovilla · listing 921544"
+      },
+      {
+        "category": "rent",
+        "label": "2 bedrooms · Cvjetno naselje, Osijek · 88.94 m²",
+        "amount": "€850",
+        "period": "per month",
+        "scope": "Individual Osijek asking rent, not a Continental Croatia average; updated 11 September 2026",
+        "note": "Two separate bedrooms confirmed; bedrooms currently unfurnished, furnishing negotiable. Lease duration and summer availability not published. Checked 14 September 2026; availability requires confirmation.",
+        "url": "https://www.nekretnine.hr/oglasi/4001785/",
+        "source": "Eurovilla agency advertisement · 598086"
+      }
+    ]
+  },
+  {
+    "slug": "split",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "All apartments asking average",
+        "amount": "€1,055",
+        "period": "per month; July 2026",
+        "scope": "Split city; Njuškalo active long-term listings",
+        "note": "Asking-price average across apartment sizes, not a studio, one-bedroom or two-bedroom average. Advertised prices are not agreed rents.",
+        "url": "https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima",
+        "source": "Njuškalo rental-market analysis"
+      },
+      {
+        "category": "rent",
+        "label": "Small apartment · Sućidar · up to 55 m²",
+        "amount": "€552",
+        "period": "per month; July 2026",
+        "scope": "Sućidar, Split; average asking price for homes up to 55 m²",
+        "note": "Neighbourhood average from active long-term advertisements. Bedroom count and individual lease conditions are not specified.",
+        "url": "https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima",
+        "source": "Njuškalo rental-market analysis"
+      },
+      {
+        "category": "rent",
+        "label": "Small apartment · Žnjan · up to 55 m²",
+        "amount": "€867",
+        "period": "per month; July 2026",
+        "scope": "Žnjan, Split; average asking price for homes up to 55 m²",
+        "note": "Neighbourhood average from active long-term advertisements. Bedroom count and individual lease conditions are not specified; seasonal availability must be confirmed.",
+        "url": "https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima",
+        "source": "Njuškalo rental-market analysis"
+      }
+    ]
+  },
+  {
+    "slug": "dubrovnik",
+    "rows": []
+  },
+  {
+    "slug": "trogir",
+    "rows": []
+  },
+  {
+    "slug": "dalmatia",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Split small apartment · Sućidar · up to 55 m²",
+        "amount": "€552",
+        "period": "per month; July 2026",
+        "scope": "Named Split example within Dalmatia; average asking price for homes up to 55 m²",
+        "note": "This is a Split neighbourhood average, not a Dalmatia-wide figure. Bedroom count and individual lease conditions are not specified.",
+        "url": "https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima",
+        "source": "Njuškalo rental-market analysis"
+      },
+      {
+        "category": "rent",
+        "label": "Zadar small apartment · Poluotok · up to 55 m²",
+        "amount": "€616",
+        "period": "per month; July 2026",
+        "scope": "Named Zadar example within Dalmatia; average asking price for homes up to 55 m²",
+        "note": "This is a Zadar neighbourhood average, not a Dalmatia-wide figure. Bedroom count and individual lease conditions are not specified.",
+        "url": "https://blog.njuskalo.hr/dom-i-vrt/prosjecne-cijene-najma-stanova-u-studentskim-gradovima",
+        "source": "Njuškalo rental-market analysis"
+      }
+    ]
+  },
+  {
+    "slug": "zadar",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Studio asking rent",
+        "amount": "€500",
+        "period": "per month; updated 2 September 2026",
+        "scope": "Sinjoretovo, Zadarska ulica; 40 m²; studio, zero separate bedrooms",
+        "note": "Advertised year-round from 1 September 2026, long-term only. Agency fee one monthly rent plus VAT. Utility inclusion not stated.",
+        "url": "https://www.nekretnine.hr/oglasi/3920899/",
+        "source": "Eurohome listing on Nekretnine.hr"
+      },
+      {
+        "category": "rent",
+        "label": "Two-bedroom asking rent",
+        "amount": "€1,200",
+        "period": "per month; updated 14 August 2026",
+        "scope": "Petrići; 70 m²; two explicitly described bedrooms",
+        "note": "Long-term listing; two parking spaces. Deposit plus agency fee of one monthly rent plus VAT; utility inclusion not stated.",
+        "url": "https://www.nekretnine.hr/oglasi/3785937/",
+        "source": "Eurohome listing on Nekretnine.hr"
+      },
+      {
+        "category": "rent",
+        "label": "One-bedroom historical 2026 asking rent",
+        "amount": "€600",
+        "period": "per month; published 19 January 2026",
+        "scope": "Belafuža, Ulica Gospe Maslinske; 46.19 m²; one bedroom plus living/kitchen",
+        "note": "Listing is expired. Advertised minimum one-year lease, available year-round, utilities extra. Historical asking example, not currently available stock.",
+        "url": "https://www.njuskalo.hr/nekretnine/zadar-dugorocni-najam-jednosobnog-stana-46.00-m2-novogradnji-oglas-49457396",
+        "source": "Advertiser on Njuškalo"
+      },
+      {
+        "category": "utilities",
+        "label": "Published basic utilities mean",
+        "amount": "€161.21",
+        "period": "per month; publisher last update 20 May 2026",
+        "scope": "Zadar; 85 m² apartment; electricity, heating, cooling, water and garbage",
+        "note": "Crowdsourced Numbeo figure, not an official tariff or a measured bill for a specific home. City page reports 33 contributors in the preceding 18 months across its dataset, not specifically utilities. Verified in indexed publisher table; live page returned an access error.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Zadar",
+        "source": "Numbeo"
+      }
+    ]
+  },
+  {
+    "slug": "sibenik",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "One-bedroom asking rent",
+        "amount": "€800",
+        "period": "per month; updated 19 August 2026",
+        "scope": "Istarska ulica; 43 m² duplex; one explicitly described upper-floor bedroom",
+        "note": "Advertised long-term. Individual listing displays €800; search-category page shows conflicting €650. Use individual listing figure with this discrepancy disclosed, or omit pending advertiser confirmation. Utilities and minimum term not stated.",
+        "url": "https://www.nekretnine.hr/oglasi/3493269/",
+        "source": "Fenix Nekretnine listing on Nekretnine.hr"
+      },
+      {
+        "category": "utilities",
+        "label": "Published basic utilities mean",
+        "amount": "€127.50",
+        "period": "per month; publisher last update 24 March 2026",
+        "scope": "Šibenik; 85 m² apartment; electricity, heating, cooling, water and garbage",
+        "note": "Crowdsourced Numbeo figure, not an official tariff or a measured bill for a specific home. City page reports 8 contributors in the preceding 18 months across its dataset, not specifically utilities. Verified in indexed publisher table; live page returned an access error.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Sibenik-Croatia",
+        "source": "Numbeo"
+      }
+    ]
+  },
+  {
+    "slug": "korcula",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Seasonal apartment asking rent",
+        "amount": "€2,000",
+        "period": "per month; published 30 August 2026",
+        "scope": "Korčula Hill, Žrnovska Banja (Žrnovo), Korčula island; listed 100 m²",
+        "note": "Available from 1 October 2026; description offers 1 October–1 June. Utilities extra; €4,000 deposit. Listed as 2-sobni, but separate bedroom count is not confirmed. Not a year-round rent or island average.",
+        "url": "https://www.njuskalo.hr/nekretnine/najam-stana-naselju-korcula-hill-oglas-51400788",
+        "source": "FSerka23 listing on Njuškalo"
+      }
+    ]
+  },
+  {
+    "slug": "istria",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Pula studio asking rent",
+        "amount": "€500",
+        "period": "per month; published 3 September 2026",
+        "scope": "Pula centre, Croazia 3; 23 m² studio",
+        "note": "Seasonal lease 15 September 2026–15 June 2027. Includes electricity, water, internet and waste. €500 deposit. Pula example, not an Istria average.",
+        "url": "https://www.njuskalo.hr/nekretnine/studio-apartman-najam-pula-oglas-51429903",
+        "source": "anelakljuco listing on Njuškalo"
+      },
+      {
+        "category": "rent",
+        "label": "Pula one-bedroom historical 2026 asking rent",
+        "amount": "€700",
+        "period": "per month; published 23 February 2026",
+        "scope": "Pula, Monvidal, Ulica Bože Gumpca; 41 m²; one explicitly described bedroom",
+        "note": "Marked sold/expired. Advertised year-round. Historical asking example, not current availability; not an Istria average.",
+        "url": "https://www.njuskalo.hr/nekretnine/cjelogodisnji-najam-pula-41.00-m2-novogradnja-oglas-49871473",
+        "source": "mdouce listing on Njuškalo"
+      },
+      {
+        "category": "utilities",
+        "label": "Published basic utilities mean",
+        "amount": "€133.71",
+        "period": "per month; publisher last update 19 June 2026",
+        "scope": "Pula; 85 m² apartment; electricity, heating, cooling, water and garbage",
+        "note": "Crowdsourced Numbeo figure, not an official tariff or a measured bill for a specific home. City page reports 27 contributors in the preceding 18 months across its dataset, not specifically utilities. City example, not a regional average. Verified in indexed publisher table; live page returned an access error.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Pula",
+        "source": "Numbeo"
+      }
+    ]
+  },
+  {
+    "slug": "slavonia",
+    "rows": [
+      {
+        "category": "rent",
+        "label": "Osijek studio asking rent",
+        "amount": "€350",
+        "period": "per month; updated 27 August 2026",
+        "scope": "Osijek, Drinska; listed 27 m² (detailed area 26.5 m²); studio",
+        "note": "Description confirms one room with kitchen, despite automated bedroom field. Utilities extra; €350 deposit. Lease length not stated. Osijek example, not a Slavonia average.",
+        "url": "https://www.nekretnine.hr/oglasi/3897311/",
+        "source": "Olga nekretnine listing on Nekretnine.hr"
+      },
+      {
+        "category": "rent",
+        "label": "Osijek one-bedroom asking rent, reserved",
+        "amount": "€600 for one person; €620 for two",
+        "period": "per month; published 27 August 2026",
+        "scope": "Osijek, Retfala; 50 m²; separate bedroom and living room",
+        "note": "Title marked RESERVED. Includes utilities. Long-term/year-round; one-month deposit. Advertised September 2026 availability; not confirmed available stock or a regional average.",
+        "url": "https://www.njuskalo.hr/nekretnine/stan-osijek-50.00-m2-rezije-cijeni-oglas-51380472",
+        "source": "Private advertiser on Njuškalo"
+      },
+      {
+        "category": "rent",
+        "label": "Osijek two-bedroom asking rent",
+        "amount": "€850",
+        "period": "per month; agency listing checked 14 September 2026",
+        "scope": "Osijek, Cvjetno naselje; agency lists 89 m²; two bedrooms",
+        "note": "Agency category page confirms asking price, size and bedroom count. Lease length and utility inclusion not stated there. Osijek example, not a Slavonia average.",
+        "url": "https://eurovilla.hr/pretraga/cvjetno-naselje/",
+        "source": "Eurovilla"
+      },
+      {
+        "category": "utilities",
+        "label": "Published basic utilities mean",
+        "amount": "€166.66",
+        "period": "per month; publisher last update 4 June 2026",
+        "scope": "Osijek; 85 m² apartment; electricity, heating, cooling, water and garbage",
+        "note": "Crowdsourced Numbeo figure, not an official tariff or a measured bill for a specific home. City page reports 10 contributors in the preceding 12 months across its dataset, not specifically utilities. City example, not a regional average. Verified in indexed publisher table; live page returned an access error.",
+        "url": "https://www.numbeo.com/cost-of-living/in/Osijek",
+        "source": "Numbeo"
+      }
+    ]
+  }
+]
